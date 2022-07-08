@@ -22,6 +22,9 @@ html, body, #page-wrapper {
     }
 }
 
+.inline-block {
+    display: inline-block;
+}
 
 .content.is-vcentered {
     display: flex;
