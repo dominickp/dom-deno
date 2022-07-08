@@ -10,9 +10,9 @@ export const Head = () => (
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="A portfolio website using fresh and deno"
+      content="A portfolio website for Dominick."
     />
-    <title>Fresh Portfolio</title>
+    <title>Dominick Peluso's Homepage</title>
     <link rel="stylesheet" href="/bulma.min.css" />
     <link rel="stylesheet" href="/index.css" />
     <link
