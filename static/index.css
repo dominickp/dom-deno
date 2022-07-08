@@ -18,7 +18,7 @@ html, body, #page-wrapper, .columns {
     align-items: center; /* if an only child */
     font-family: 'Lato', sans-serif;
     font-weight: 300;
-    font-size: 0.95rem;
+    font-size: 1.05rem;
 }
 
 .box.glass {
@@ -33,13 +33,13 @@ strong, .box, #footer, #footer a, #footer a:visited {
 
 .content h2 {
     color: #a4b0c2;
-    font-size: 0.85rem;
+    font-size: 1rem;
     font-weight: 300;
     text-transform: uppercase; 
 }
 
 .button.is-link {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     padding: 0em 0.8em;
     background-color: rgb(101 101 101 / 50%);
 }
@@ -103,10 +103,14 @@ h1#title {
 }
 
 #footer {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     text-align: center;
     width: 100%;
     font-family: 'lato',sans-serif;
+}
+
+hr {
+    background-color: #697c99;
 }
 
 #footer svg {
