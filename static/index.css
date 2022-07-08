@@ -7,9 +7,17 @@ html {
     overflow: hidden; 
 }
 html, body, #page-wrapper, .columns {
-    overflow: hidden;
     height: 100%;
+    overflow: hidden;
 }
+
+@media screen and (max-width: 769px), print {
+     #page-wrapper {
+        overflow-y: auto;
+        height: 200%;;
+    }
+}
+
 
 .content.is-vcentered {
     display: flex;
