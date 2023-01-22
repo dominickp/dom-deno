@@ -18,13 +18,13 @@ export default function Homepage() {
           <div>
             <h2>Professional Stuff</h2>
             <p>
-              I’m a currently cloud software engineer at Bose where I design,
-              build, and operate microservices that are used by millions of
+              I'm currently a cloud software engineer at Bose. I design,
+              build, test, and operate cloud microservices that are used by millions of
               users and devices.
             </p>
             <p>
-              I have a bit of experience in a lot of others areas too, including
-              back-end and front-end web development, mobile app development,
+              I have a bit of experience in a lot of others areas too, including: 
+              back-end and front-end web development, 
               print automation, and process improvement.
             </p>
           </div>
