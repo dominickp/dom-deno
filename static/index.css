@@ -40,6 +40,7 @@ html, body, #page-wrapper {
     backdrop-filter: blur(3px);
     background-color: rgb(142 175 230 / 10%);
     box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 50%), 0 0 0 1px rgb(10 10 10 / 12%);
+    padding: 40px 30px;
 }
 
 strong, .box, #footer, #footer a, #footer a:visited {

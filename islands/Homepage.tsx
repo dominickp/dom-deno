@@ -18,14 +18,14 @@ export default function Homepage() {
           <div>
             <h2>Professional Stuff</h2>
             <p>
-              I'm currently a cloud software engineer at Bose. I design,
-              build, test, and operate cloud microservices that are used by millions of
+              I'm currently a cloud software engineer at Bose. I design, build,
+              test, and operate cloud microservices that are used by millions of
               users and devices.
             </p>
             <p>
-              I have a bit of experience in a lot of others areas too, including: 
-              back-end and front-end web development, 
-              print automation, and process improvement.
+              I have a bit of experience in a lot of others areas too,
+              including: back-end and front-end web development, print
+              automation, and process improvement.
             </p>
           </div>
         </div>
@@ -67,21 +67,6 @@ export default function Homepage() {
           >
             <span class="iconify" data-icon="simple-icons:linkedin">
             </span>&nbsp;&nbsp; LinkedIn
-          </a>
-
-          <a
-            class="button is-link is-normal"
-            onClick={() => {
-              popup = window.open(
-                "https://mailhide.io/e/y0Q94",
-                "mailhidepopup",
-                "width=580,height=635",
-              );
-              return false;
-            }}
-          >
-            <span class="iconify" data-icon="entypo:mail">
-            </span>&nbsp;&nbsp; Email me
           </a>
         </p>
       </div>

@@ -21,6 +21,7 @@ export const Head = () => (
     >
       <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     </link>
+    <script src="doorbell.io.js"></script>
   </head>
 );
 
