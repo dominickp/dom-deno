@@ -29,6 +29,17 @@
           direction: "normal", // alternate
           loop: true
         });
+
+        // Alter background image/color randomly
+        const max = 120;
+        const r = Math.random() * (max - 0) + 0;
+        const g = Math.random() * (max - 0) + 0;
+        const b = Math.random() * (max - 0) + 0;
+
+        document
+          .querySelector("html")
+          .style
+          .backgroundImage = `linear-gradient(rgba(${r}, ${g}, ${b}, 0.8), rgba(${r}, ${g}, ${b}, 0.8)), url('/static/dom.webp')`;
       });
     </script>
   </head>

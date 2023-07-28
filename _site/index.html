@@ -29,6 +29,17 @@
           direction: "normal", // alternate
           loop: true
         });
+
+        // Alter background image/color randomly
+        const max = 120;
+        const r = Math.random() * (max - 0) + 0;
+        const g = Math.random() * (max - 0) + 0;
+        const b = Math.random() * (max - 0) + 0;
+
+        document
+          .querySelector("html")
+          .style
+          .backgroundImage = `linear-gradient(rgba(${r}, ${g}, ${b}, 0.8), rgba(${r}, ${g}, ${b}, 0.8)), url('/static/dom.webp')`;
       });
     </script>
   </head>
@@ -185,7 +196,7 @@
         //"rgba(255,255,255, .2)"
         tl.add({
             targets: '#itg-viz-wrapper .panel#left', // left on
-            fill: "#FFFFFF"
+            fill: "rgba(255,255,255,3)"
         }, 250)
         tl.add({
             targets: '#itg-viz-wrapper .panel#left', // left off
@@ -193,7 +204,7 @@
         }, 500)
         tl.add({
             targets: '#itg-viz-wrapper .panel#up', // up on
-            fill: "#FFFFFF"
+            fill: "rgba(255,255,255,3)"
         }, 500)
         tl.add({
             targets: '#itg-viz-wrapper .panel#up', // up off
@@ -201,7 +212,7 @@
         }, 750)
         tl.add({
             targets: '#itg-viz-wrapper .panel#down', // down on
-            fill: "#FFFFFF"
+            fill: "rgba(255,255,255,3)"
         }, 750)
         tl.add({
             targets: '#itg-viz-wrapper .panel#down', // down off
@@ -209,7 +220,7 @@
         }, 1000)
         tl.add({
             targets: '#itg-viz-wrapper .panel#right', // right on
-            fill: "#FFFFFF"
+            fill: "rgba(255,255,255,3)"
         }, 1000)
         tl.add({
             targets: '#itg-viz-wrapper .panel#right', // right off
@@ -218,7 +229,7 @@
         tl.add({
             targets: '#itg-viz-wrapper .panel#right', // right off
             fill: "rgba(255,255,255, .2)"
-        }, 2000)
+        }, 4000)
     });
 </script>
 <div id="itg-viz-wrapper">
