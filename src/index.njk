@@ -21,53 +21,58 @@ itg_links:
   - text: Dom_ITG
     url: https://www.youtube.com/channel/UCpeNRVOVrqx_lras7hbOOrQ
     icon: simple-icons:youtube
-
+  - text: ITG Wiki
+    url: https://itgwiki.dominick.cc/
+    icon: simple-icons:wikipedia
 ---
 
 <div class="row">
-    <div class="twelve column">
+    <div class="two-thirds column">
         <h1>Professional Stuff</h2>
         <p>
             I'm currently a cloud software engineer at Bose. I design, build, test, and
-operate cloud microservices that are used by millions of users and devices.
+            operate cloud microservices that are used by millions of users and devices. 
+            I'm passionate about software development, testing, distributed systems, observability, 
+            and developer productivity.
         </p>
-        <p>
-            I have a bit of experience in a lot of others areas too, including: back-end and
-front-end web development, print automation, and process improvement.
-        </p>
+
         <div>
             {% for link in personal_links %}
-                <li>
-                    <a href="{{ link.url }}" target="_blank">
-                        <span class="iconify" data-icon="{{link.icon}}"></span>
-                        {{ link.text }}
-                    </a>
-                </li>
+                <a class="button" href="{{ link.url }}" target="_blank">
+                    <span class="iconify" data-icon="{{link.icon}}"></span>
+                    {{ link.text }}
+                </a>
             {% endfor %}
         </div>
     </div>
+    <div class="one-third column">
+        {{comp.cloud_viz({"num_squares": 100}) | safe}}
+
+    </div>
 </div>
+<hr/>
 <div class="row">
-    <div class="twelve column">
+    <div class="two-thirds column">
         <h1>ITG Stuff</h2>
         <p>
             One of my favorite hobbies is playing In The Groove (ITG) which is a somewhat
-obscure arcade dance game from the early 2000s. I play a variant of ITG which is
-focused on stamina and speed as one of my workout routines.
+            obscure arcade dance game from the early 2000s. I play a variant of ITG which is
+            focused on stamina and speed as one of my workout routines.
         </p>
         <p>
             I stream live on my Twitch channel and I also make ITG videos on YouTube once in
-a while.
+            a while.
         </p>
         <div>
             {% for link in itg_links %}
-                <li>
-                    <a href="{{ link.url }}">
-                        <span class="iconify" data-icon="{{link.icon}}"></span>
-                        {{ link.text }}
-                    </a>
-                </li>
+                <a class="button" href="{{ link.url }}" target="_blank">
+                    <span class="iconify" data-icon="{{link.icon}}"></span>
+                    {{ link.text }}
+                </a>
             {% endfor %}
         </div>
+    </div>
+    <div class="one-third column">
+        {{comp.panel_viz() | safe}}
     </div>
 </div>
