@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <script src="/static/anime.min.js"></script>
+    <link rel="stylesheet" href="/static/normalize.css">
+    <link rel="stylesheet" href="/static/skeleton.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script>
+      // self executing function here
+      document.addEventListener("DOMContentLoaded", function (event) {
+        anime({
+          targets: '#dom-logo path',
+          strokeDashoffset: [
+            anime.setDashoffset, 0
+          ],
+          easing: "linear", //easeInOutSine
+          duration: 5500,
+          delay: function (el, i) {
+            return i * 250
+          },
+          direction: "normal", // alternate
+          loop: true
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="twelve column">{{comp.dominick_logo_svg() | safe}}</div>
+      </div>
+      {{ content | safe }}
+    </div>
+  </body>
+</html>

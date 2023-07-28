@@ -1,0 +1,73 @@
+---
+title: Welcome to my page
+layout: layout.njk
+personal_links:
+  - text: My Resume
+    url: /static/resume.pdf
+    icon: fa-solid:file-pdf
+  - text: dominickp
+    url: https://github.com/dominickp
+    icon: simple-icons:github
+  - text: Dominick-Peluso-Bose
+    url: https://github.com/Dominick-Peluso-Bose
+    icon: simple-icons:github
+  - text: LinkedIn
+    url: https://www.linkedin.com/in/dominickpeluso/
+    icon: simple-icons:linkedin
+itg_links:
+  - text: Dom_ITG
+    url: https://www.twitch.tv/dom_itg
+    icon: simple-icons:twitch
+  - text: Dom_ITG
+    url: https://www.youtube.com/channel/UCpeNRVOVrqx_lras7hbOOrQ
+    icon: simple-icons:youtube
+
+---
+
+<div class="row">
+    <div class="twelve column">
+        <h1>Professional Stuff</h2>
+        <p>
+            I'm currently a cloud software engineer at Bose. I design, build, test, and
+operate cloud microservices that are used by millions of users and devices.
+        </p>
+        <p>
+            I have a bit of experience in a lot of others areas too, including: back-end and
+front-end web development, print automation, and process improvement.
+        </p>
+        <div>
+            {% for link in personal_links %}
+                <li>
+                    <a href="{{ link.url }}" target="_blank">
+                        <span class="iconify" data-icon="{{link.icon}}"></span>
+                        {{ link.text }}
+                    </a>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="twelve column">
+        <h1>ITG Stuff</h2>
+        <p>
+            One of my favorite hobbies is playing In The Groove (ITG) which is a somewhat
+obscure arcade dance game from the early 2000s. I play a variant of ITG which is
+focused on stamina and speed as one of my workout routines.
+        </p>
+        <p>
+            I stream live on my Twitch channel and I also make ITG videos on YouTube once in
+a while.
+        </p>
+        <div>
+            {% for link in itg_links %}
+                <li>
+                    <a href="{{ link.url }}">
+                        <span class="iconify" data-icon="{{link.icon}}"></span>
+                        {{ link.text }}
+                    </a>
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+</div>

@@ -1,6 +1,10 @@
 {
   "tasks": {
-    "start": "deno run -A --watch=static/,routes/ dev.ts"
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A -",
+    "build": "deno task lume",
+    "serve": "deno task lume -s"
   },
-  "importMap": "./import_map.json"
+  "imports": {
+    "lume/": "https://deno.land/x/lume@v1.18.3/"
+  }
 }

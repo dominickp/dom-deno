@@ -1,16 +1,9 @@
-# dom-deno
+# Build
 
-### Usage
+deno task lume
 
-Start the project:
+# Start a local server
 
-```
-deno task start
-```
+deno task lume --serve
 
-This will watch the project directory and restart as necessary.
-
-### Credits
-
-- [Parallax Star background in CSS](https://codepen.io/sarazond/pen/LYGbwj) by
-  sarazond
+https://deno.com/blog/build-a-static-site-with-lume
