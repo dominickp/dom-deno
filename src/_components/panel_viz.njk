@@ -1,0 +1,49 @@
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        var tl = anime.timeline({easing: 'linear', duration: 1000, loop: true});
+        //"rgba(255,255,255, .2)"
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#left', // left on
+            fill: "rgba(255,255,255,3)"
+        }, 250)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#left', // left off
+            fill: "rgba(255,255,255, .2)"
+        }, 500)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#up', // up on
+            fill: "rgba(255,255,255,3)"
+        }, 500)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#up', // up off
+            fill: "rgba(255,255,255, .2)"
+        }, 750)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#down', // down on
+            fill: "rgba(255,255,255,3)"
+        }, 750)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#down', // down off
+            fill: "rgba(255,255,255, .2)"
+        }, 1000)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#right', // right on
+            fill: "rgba(255,255,255,3)"
+        }, 1000)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#right', // right off
+            fill: "rgba(255,255,255, .2)"
+        }, 1250)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#right', // right off
+            fill: "rgba(255,255,255, .2)"
+        }, 4000)
+    });
+</script>
+<div id="itg-viz-wrapper">
+    {{comp.panel_svg({ id: "left" }) | safe}}
+    {{comp.panel_svg({ id: "up" }) | safe}}
+    {{comp.panel_svg({ id: "down" }) | safe}}
+    {{comp.panel_svg({ id: "right" }) | safe}}
+</div>

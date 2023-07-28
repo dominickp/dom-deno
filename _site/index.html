@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Welcome to my page</title>
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    <script src="/static/anime.min.js"></script>
+    <link rel="stylesheet" href="/static/normalize.css">
+    <link rel="stylesheet" href="/static/skeleton.css">
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300&display=swap" rel="stylesheet">
+    <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    <script>
+
+      // self executing function here
+      document.addEventListener("DOMContentLoaded", function (event) {
+        anime({
+          targets: '#dom-logo path',
+          strokeDashoffset: [
+            anime.setDashoffset, 0
+          ],
+          easing: "linear", //easeInOutSine
+          duration: 8500,
+          delay: function (el, i) {
+            return i * 250
+          },
+          direction: "normal", // alternate
+          loop: true
+        });
+
+        // Alter background image/color randomly
+        const max = 120;
+        const r = Math.random() * (max - 0) + 0;
+        const g = Math.random() * (max - 0) + 0;
+        const b = Math.random() * (max - 0) + 0;
+
+        document
+          .querySelector("html")
+          .style
+          .backgroundImage = `linear-gradient(rgba(${r}, ${g}, ${b}, 0.8), rgba(${r}, ${g}, ${b}, 0.8)), url('/static/dom.webp')`;
+      });
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="twelve column"><svg
+  id="dom-logo"
+      stroke="#FFFFFF" 
+      stroke-width="1" 
+      fill="#FFFFFF" 
+      fill-opacity="0%"
+   width="161.7473mm"
+   height="13.8938mm"
+   viewBox="0 0 161.7473 13.8938"
+   version="1.1"
+   inkscape:export-filename="bitmap.svg"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+
+   <defs
+     id="defs1"/>
+   <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-24.824781,-47.36897)">
+      <path
+      class="path-dashed"
+       style="font-size:96px;font-family:'Orator Std';-inkscape-font-specification:'Orator Std';text-align:center;text-anchor:middle;white-space:pre"
+       d="m 93.825947,186.04033 h 5.184 v 38.496 h -5.184 v 5.76 h 16.704003 c 17.952,0 20.64,-9.984 20.64,-25.632 0,-18.528 -6.432,-24.384 -20.64,-24.384 H 93.825947 Z m 11.616003,0 h 6.624 c 7.968,0 12.384,3.936 12.384,19.296 0,14.4 -3.744,19.2 -12.192,19.2 h -6.816 z m 63.36003,-6.624 c -8.256,0 -17.76,5.952 -17.76,25.92 0,20.064 9.696,25.824 17.76,25.824 17.472,0 17.76,-21.792 17.76,-25.824 0,-20.16 -9.792,-25.92 -17.76,-25.92 z m 0,6.048 c 9.696,0 11.04,12.48 11.04,19.872 0,7.296 -1.344,19.776 -11.04,19.776 -9.696,0 -11.04,-12.48 -11.04,-19.776 0,-7.392 1.344,-19.872 11.04,-19.872 z m 57.60004,30.72 11.232,-26.4 h 0.192 l 1.248,40.512 h 6.816 l -2.016,-50.016 h -8.448 l -9.024,21.696 -9.024,-21.696 h -8.448 l -2.016,50.016 h 6.816 l 1.248,-40.512 h 0.192 z m 47.32804,14.112 h 20.544 v -5.76 h -7.104 v -38.496 h 7.104 v -5.76 h -20.544 v 5.76 h 7.008 v 38.496 h -7.008 z m 51.16803,0 h 6.432 v -28.896 l -0.576,-13.056 0.192,-0.192 19.392,42.144 h 7.968 v -50.016 h -6.432 v 28.992 l 0.576,12.96 -0.192,0.192 -19.392,-42.144 h -7.968 z m 64.03204,0 h 20.544 v -5.76 h -7.104 v -38.496 h 7.104 v -5.76 h -20.544 v 5.76 h 7.008 v 38.496 h -7.008 z m 80.54404,-13.248 c -2.976,4.512 -5.952,8.064 -11.808,8.064 -10.176,0 -12,-12.096 -12,-19.872 0,-7.68 2.016,-19.776 12,-19.776 4.896,0 7.776,3.552 9.888,7.584 l 5.856,-2.976 c -3.552,-6.624 -8.064,-10.656 -15.84,-10.656 -8.064,0 -18.624,5.952 -18.624,25.92 0,12.384 4.608,25.824 19.2,25.824 7.776,0 12.576,-4.128 16.608,-10.464 z m 38.11203,-36.768 h -6.432 v 50.016 h 6.432 v -23.424 h 2.208 l 20.256,24.672 4.896,-4.128 -19.488,-23.52 16.608,-21.024 -4.896,-3.84 -17.184,22.56 h -2.4 z m 60.00004,50.016 h 8.832 v -14.208 h -8.832 z m 74.68804,-13.248 c -2.976,4.512 -5.952,8.064 -11.808,8.064 -10.176,0 -12,-12.096 -12,-19.872 0,-7.68 2.016,-19.776 12,-19.776 4.896,0 7.776,3.552 9.888,7.584 l 5.856,-2.976 c -3.552,-6.624 -8.064,-10.656 -15.84,-10.656 -8.064,0 -18.624,5.952 -18.624,25.92 0,12.384 4.608,25.824 19.2,25.824 7.776,0 12.576,-4.128 16.608,-10.464 z m 57.60003,0 c -2.976,4.512 -5.952,8.064 -11.808,8.064 -10.176,0 -12,-12.096 -12,-19.872 0,-7.68 2.016,-19.776 12,-19.776 4.896,0 7.776,3.552 9.888,7.584 l 5.856,-2.976 c -3.552,-6.624 -8.064,-10.656 -15.84,-10.656 -8.064,0 -18.624,5.952 -18.624,25.92 0,12.384 4.608,25.824 19.2,25.824 7.776,0 12.576,-4.128 16.608,-10.464 z"
+       id="text1"
+       transform="scale(0.26458333)"
+       aria-label="dominick.cc"/>
+   </g>
+</svg></div>
+      </div>
+      <div class="row">
+    <div class="two-thirds column">
+        <h1>Professional Stuff</h2>
+        <p>
+            I'm currently a cloud software engineer at Bose. I design, build, test, and
+            operate cloud microservices that are used by millions of users and devices. 
+            I'm passionate about software development, testing, distributed systems, observability, 
+            and developer productivity.
+        </p>
+
+        <div>
+            
+                <a class="button" href="/static/resume.pdf" target="_blank">
+                    <span class="iconify" data-icon="fa-solid:file-pdf"></span>
+                    My Resume
+                </a>
+            
+                <a class="button" href="https://github.com/dominickp" target="_blank">
+                    <span class="iconify" data-icon="simple-icons:github"></span>
+                    dominickp
+                </a>
+            
+                <a class="button" href="https://github.com/Dominick-Peluso-Bose" target="_blank">
+                    <span class="iconify" data-icon="simple-icons:github"></span>
+                    Dominick-Peluso-Bose
+                </a>
+            
+                <a class="button" href="https://www.linkedin.com/in/dominickpeluso/" target="_blank">
+                    <span class="iconify" data-icon="simple-icons:linkedin"></span>
+                    LinkedIn
+                </a>
+            
+        </div>
+    </div>
+    <div class="one-third column">
+        <div class="demo-content staggering-axis-grid-demo">
+    <script>
+        document.addEventListener("DOMContentLoaded", function (event) {
+            anime({
+                targets: '.staggering-axis-grid-demo .el',
+                loop: true,
+                scale: [
+                    {
+                        value: .1,
+                        easing: 'easeOutSine',
+                        duration: 500
+                    }, {
+                        value: 1,
+                        easing: 'easeInOutQuad',
+                        duration: 1200
+                    }, {
+                        value: 1,
+                        easing: 'easeInOutQuad',
+                        duration: 3200
+                    }
+                ],
+                delay: anime.stagger(200, {
+                    grid: [
+                        10, 10
+                    ],
+                    from: 'center'
+                })
+            });
+        });
+    </script>
+    <div class="grid">
+        <div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div><div class="small square el"></div>
+    </div>
+    <div class="grid shadow">
+        <div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div><div class="small square"></div>
+    </div>
+</div>
+
+    </div>
+</div>
+<hr/>
+<div class="row">
+    <div class="two-thirds column">
+        <h1>ITG Stuff</h2>
+        <p>
+            One of my favorite hobbies is playing In The Groove (ITG) which is a somewhat
+            obscure arcade dance game from the early 2000s. I play a variant of ITG which is
+            focused on stamina and speed as one of my workout routines.
+        </p>
+        <p>
+            I stream live on my Twitch channel and I also make ITG videos on YouTube once in
+            a while.
+        </p>
+        <div>
+            
+                <a class="button" href="https://www.twitch.tv/dom_itg" target="_blank">
+                    <span class="iconify" data-icon="simple-icons:twitch"></span>
+                    Dom_ITG
+                </a>
+            
+                <a class="button" href="https://www.youtube.com/channel/UCpeNRVOVrqx_lras7hbOOrQ" target="_blank">
+                    <span class="iconify" data-icon="simple-icons:youtube"></span>
+                    Dom_ITG
+                </a>
+            
+                <a class="button" href="https://itgwiki.dominick.cc/" target="_blank">
+                    <span class="iconify" data-icon="simple-icons:wikipedia"></span>
+                    ITG Wiki
+                </a>
+            
+        </div>
+    </div>
+    <div class="one-third column">
+        <script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+
+        var tl = anime.timeline({easing: 'linear', duration: 1000, loop: true});
+        //"rgba(255,255,255, .2)"
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#left', // left on
+            fill: "rgba(255,255,255,3)"
+        }, 250)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#left', // left off
+            fill: "rgba(255,255,255, .2)"
+        }, 500)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#up', // up on
+            fill: "rgba(255,255,255,3)"
+        }, 500)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#up', // up off
+            fill: "rgba(255,255,255, .2)"
+        }, 750)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#down', // down on
+            fill: "rgba(255,255,255,3)"
+        }, 750)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#down', // down off
+            fill: "rgba(255,255,255, .2)"
+        }, 1000)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#right', // right on
+            fill: "rgba(255,255,255,3)"
+        }, 1000)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#right', // right off
+            fill: "rgba(255,255,255, .2)"
+        }, 1250)
+        tl.add({
+            targets: '#itg-viz-wrapper .panel#right', // right off
+            fill: "rgba(255,255,255, .2)"
+        }, 4000)
+    });
+</script>
+<div id="itg-viz-wrapper">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="panel" id="left" fill="rgba(255,255,255, .2)">
+    <g data-name="9-Arrow Up"><path d="M25 0H7a7 7 0 0 0-7 7v18a7 7 0 0 0 7 7h18a7 7 0 0 0 7-7V7a7 7 0 0 0-7-7zm5 25a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5h18a5 5 0 0 1 5 5z"/><path d="m15.29 5.29-7 7L9.7 13.7 15 8.41V27h2V8.41l5.29 5.29 1.41-1.41-7-7a1 1 0 0 0-1.41 0z"/></g>
+</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="panel" id="up" fill="rgba(255,255,255, .2)">
+    <g data-name="9-Arrow Up"><path d="M25 0H7a7 7 0 0 0-7 7v18a7 7 0 0 0 7 7h18a7 7 0 0 0 7-7V7a7 7 0 0 0-7-7zm5 25a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5h18a5 5 0 0 1 5 5z"/><path d="m15.29 5.29-7 7L9.7 13.7 15 8.41V27h2V8.41l5.29 5.29 1.41-1.41-7-7a1 1 0 0 0-1.41 0z"/></g>
+</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="panel" id="down" fill="rgba(255,255,255, .2)">
+    <g data-name="9-Arrow Up"><path d="M25 0H7a7 7 0 0 0-7 7v18a7 7 0 0 0 7 7h18a7 7 0 0 0 7-7V7a7 7 0 0 0-7-7zm5 25a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5h18a5 5 0 0 1 5 5z"/><path d="m15.29 5.29-7 7L9.7 13.7 15 8.41V27h2V8.41l5.29 5.29 1.41-1.41-7-7a1 1 0 0 0-1.41 0z"/></g>
+</svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" class="panel" id="right" fill="rgba(255,255,255, .2)">
+    <g data-name="9-Arrow Up"><path d="M25 0H7a7 7 0 0 0-7 7v18a7 7 0 0 0 7 7h18a7 7 0 0 0 7-7V7a7 7 0 0 0-7-7zm5 25a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5h18a5 5 0 0 1 5 5z"/><path d="m15.29 5.29-7 7L9.7 13.7 15 8.41V27h2V8.41l5.29 5.29 1.41-1.41-7-7a1 1 0 0 0-1.41 0z"/></g>
+</svg>
+</div>
+    </div>
+</div>
+    </div>
+  </body>
+</html>
