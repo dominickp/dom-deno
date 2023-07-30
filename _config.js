@@ -19,6 +19,6 @@ site.copy(['.min.js'])
 site.copyRemainingFiles((path) => path.startsWith('/static/'))
 
 // Minify HTML
-site.use(minifyHTML())
+site.use(minifyHTML({ options: { keep_spaces_between_attributes: true } }))
 
 export default site
