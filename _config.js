@@ -1,4 +1,6 @@
 import lume from 'lume/mod.ts'
+import lightningCss from 'lume/plugins/lightningcss.ts'
+import minifyHTML from 'lume/plugins/minify_html.ts'
 
 const site = lume({
     src: './src',
@@ -7,7 +9,16 @@ const site = lume({
     },
 })
 
-// Copy all files from the "/static/" directory
-site.copy('static')
+// Minify CSS
+site.use(lightningCss({ extensions: ['.css'] }))
+
+// Copy in anime.min.js
+site.copy(['.min.js'])
+
+// Grab all other static files
+site.copyRemainingFiles((path) => path.startsWith('/static/'))
+
+// Minify HTML
+site.use(minifyHTML())
 
 export default site
