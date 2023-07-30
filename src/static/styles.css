@@ -38,6 +38,7 @@ body {
     background-color: white;
     font-size: 13px;
     padding: 0 10px;
+    margin-right: 10px;
 }
 .button:hover {
     color: #000;
