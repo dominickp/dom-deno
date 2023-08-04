@@ -9,10 +9,14 @@ html {
 
 svg#dom-logo {
     width: 100%;
-    margin: 50px 0;
+    margin: 0;
     min-height: 200px;
 }
 
+h1 {
+    text-transform: uppercase;
+    font-size: 4rem;
+}
 @media (max-aspect-ratio: 3.5/4) {
     /* … */
 
@@ -22,6 +26,7 @@ svg#dom-logo {
     }
     svg#dom-logo {
         min-height: auto;
+        margin: 50px 0;
     }
 }
 
@@ -53,14 +58,10 @@ body {
     vertical-align: middle;
 }
 
-h1 {
-    text-transform: uppercase;
-}
-
 /* ITG Viz */
 
 #itg-viz-wrapper {
-    margin-top: 30px;
+    margin-top: 0px;
     margin-left: 20px;
     position: relative;
 }
@@ -127,19 +128,31 @@ h1 {
     .demo-content {
         display: none;
     }
+    h1 {
+        font-size: 3rem;
+    }
 }
-.footer a,
-.footer a:active,
-.footer a:visited {
+a.button,
+a.button:active,
+a.button:visited {
+    color: #555;
+}
+a,
+a:active,
+a:visited {
     color: white;
     font-weight: bold;
     text-decoration: none;
     font-weight: 500;
 }
-.footer a:hover {
+a:hover {
     color: rgba(255, 255, 255, 0.7);
 }
 
 .footer {
     margin-bottom: 40px;
+}
+
+hr {
+    border-color: rgba(255, 255, 255, 0.4);
 }

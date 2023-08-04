@@ -24,6 +24,13 @@ itg_links:
   - text: ITG Wiki
     url: https://itgwiki.dominick.cc/
     icon: simple-icons:wikipedia
+contact_links:
+  - text: Webchat
+    url: https://irc.dominick.cc/
+    icon: mdi:chat-outline
+  - text: irc.dominick.cc
+    url: ircs://irc.dominick.cc:6697
+    icon: file-icons:mirc
 ---
 
 <div class="row">
@@ -53,14 +60,10 @@ itg_links:
 <hr/>
 <div class="row">
     <div class="two-thirds column">
-        <h1>ITG Stuff</h1>
+        <h1>In The Groove</h1>
         <p>
-            One of my favorite hobbies is playing In The Groove (ITG) which is a somewhat
-            obscure arcade dance game from the early 2000s. I play a variant of ITG which is
-            focused on stamina and speed as one of my workout routines.
-        </p>
-        <p>
-            I stream live on my Twitch channel and I also make ITG videos on YouTube once in
+            I play ITG, which is a somewhat obscure arcade dance game from the early 2000s &mdash; <a href="https://itgwiki.dominick.cc/en/meta/what-is-itg" target="_blank">similar to Dance Dance Revolution</a>. 
+            I stream ITG live on my Twitch channel and also make related videos on YouTube once in
             a while.
         </p>
         <div>
@@ -78,8 +81,30 @@ itg_links:
 </div>
 <hr/>
 <div class="row">
+    <div class="column">
+        <h1>Contact</h1>
+        <p>Want to chat? Shoot me an email or jump on my IRC server. If you don't have an IRC client, you can connect via the web client.</p>
+        <a
+            href="#"
+            class="button"
+            data-contact="ZG9tQGRvbWluaWNrLmNj"
+            data-subj="SGV5IERvbQ=="
+            onfocus="this.href = 'mailto:' + atob(this.dataset.contact) + '?subject=' + atob(this.dataset.subj || '')"
+            >
+            <span class="iconify" data-icon="material-symbols:mail-outline"></span>
+            Email
+        </a>
+        {% for link in contact_links %}
+            <a class="button" href="{{ link.url }}" target="_blank">
+                <span class="iconify" data-icon="{{link.icon}}"></span>
+                {{ link.text }}
+            </a>
+        {% endfor %}
+    </div>
+</div>
+<hr/>
+<div class="row">
     <div class="column footer">
-        <p>Want to chat? I run an IRC server at <i>irc.dominick.cc:6697</i>. If you don't have an IRC client, you can connect via <a href="https://irc.dominick.cc/" target="_blank">the web client</a>.</p>
         <p>
         This website was generated with <a href="https://lume.land/" target="_blank">Lume</a> on <a href="https://deno.land/" target="_blank">Deno</a>. 
         The animations were made with <a href="https://animejs.com/" target="_blank">Anime.js</a>. 
