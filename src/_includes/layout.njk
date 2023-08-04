@@ -46,10 +46,11 @@
 
         // Alter background image/color randomly
         const max = 120;
-        const r = Math.random() * (max - 0) + 0;
-        const g = Math.random() * (max - 0) + 0;
-        const b = Math.random() * (max - 0) + 0;
+        const r = Math.round(Math.random() * (max - 0) + 0)
+        const g = Math.round(Math.random() * (max - 0) + 0)
+        const b = Math.round(Math.random() * (max - 0) + 0)
 
+        // Set the background color and image
         document
           .querySelector("html")
           .style
@@ -58,6 +59,12 @@
           .querySelector("html")
           .style
           .backgroundColor = `rgba(${r}, ${g}, ${b}, 0.8)`;
+
+        // Change the text selection color
+        const ss = document.styleSheets[0]
+        if ("insertRule" in ss) {
+          ss.insertRule(`::selection { background: rgb(${r}, ${g}, ${b}); }`, 0);
+        }
       });
     </script>
   </head>

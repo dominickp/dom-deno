@@ -47,6 +47,7 @@ body {
     margin-right: 10px;
     font-weight: 500;
     font-family: 'Source Code Pro', monospace;
+    user-select: none;
 }
 .button:hover {
     color: #000;
