@@ -3,7 +3,7 @@
     "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A -",
     "build": "deno task lume",
     "serve": "deno task lume -s",
-    "build-serve": "deno task build | deno run -A server/serve.ts"
+    "build-serve": "deno task build && deno run -A serve.ts"
   },
   "imports": {
     "lume/": "https://deno.land/x/lume@v1.18.3/"

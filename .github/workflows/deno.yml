@@ -25,5 +25,7 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: dominick
-          entrypoint: https://deno.land/std@0.167.0/http/file_server.ts
-          root: ./_site
+          entrypoint: serve.ts
+          # Original built-in file server
+          # entrypoint: https://deno.land/std@0.167.0/http/file_server.ts
+          # root: ./_site
