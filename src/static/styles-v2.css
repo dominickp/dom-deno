@@ -28,6 +28,7 @@ svg#dom-logo {
 body {
     color: #fff;
     font-family: 'Source Code Pro', monospace;
+    font-weight: 300;
 }
 
 .path-dashed {
@@ -39,6 +40,8 @@ body {
     font-size: 13px;
     padding: 0 10px;
     margin-right: 10px;
+    font-weight: 500;
+    font-family: 'Source Code Pro', monospace;
 }
 .button:hover {
     color: #000;
@@ -131,6 +134,7 @@ h1 {
     color: white;
     font-weight: bold;
     text-decoration: none;
+    font-weight: 500;
 }
 .footer a:hover {
     color: rgba(255, 255, 255, 0.7);
