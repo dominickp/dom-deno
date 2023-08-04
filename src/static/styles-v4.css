@@ -21,7 +21,7 @@ h1 {
     /* … */
 
     html {
-        background-size: 250%;
+        background-size: 280%;
         background-position: 40% 35%;
     }
     svg#dom-logo {
@@ -130,6 +130,9 @@ body {
     }
     h1 {
         font-size: 3rem;
+    }
+    html {
+        background-position: 40% 0%;
     }
 }
 a.button,
