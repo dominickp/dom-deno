@@ -484,6 +484,7 @@
     "https://deno.land/x/lume@v1.18.4/middlewares/not_found.ts": "8a2b7d78d0dd4f441cee909682faac9387ca3b801f8e4ae0f6695a007313732e",
     "https://deno.land/x/lume@v1.18.4/middlewares/reload.ts": "1162ee5fc3c7e1f6b5fb3da73a648fc71f0a64d30ca48f05ed066c8cb80adbb6",
     "https://deno.land/x/lume@v1.18.4/middlewares/reload_client.js": "34d75e01503fae8180796de882af42b1125fac88f22a010a99d5548de1ba7d72",
+    "https://deno.land/x/lume@v1.18.4/middlewares/www.ts": "80ee1e660c6d518baf75f7e07c0760562cae69e2c8194833afc7757a3784d4c7",
     "https://deno.land/x/lume_cleancss@v0.2.0/deps.ts": "9d24dfe0c316ac015fd6dfc5bdc4d7789bcacac93feb5c31bb6ddd9bd0c9f7f2",
     "https://deno.land/x/lume_cleancss@v0.2.0/mod.ts": "be005595845e91a671cd1d78c4ba5290bb125c77276377c6bb828163ca9297a5",
     "https://esm.sh/clean-css@5.3.1": "2531e1784d001e11bef1859f867ed71838ef3c0b66dbe9cf7ff4367f7a979dbd",
