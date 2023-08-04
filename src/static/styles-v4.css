@@ -105,7 +105,7 @@ body {
 }
 .demo-content {
     scale: 0.8;
-    margin-top: 40px;
+    margin-bottom: -20px;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -133,6 +133,11 @@ body {
     }
     html {
         background-position: 40% 0%;
+    }
+}
+@media (max-width: 590px) {
+    .button.hide-mobile {
+        display: none;
     }
 }
 a.button,

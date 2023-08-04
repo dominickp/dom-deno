@@ -1,27 +1,28 @@
 ---
-title: ᴅᴏᴍɪɴɪᴄᴋ.ᴄᴄ
+title: Dom's Homepage
 layout: layout.njk
 personal_links:
   - text: Resume
     url: /static/resume.pdf
     icon: fa-solid:file-pdf
-  - text: dominickp
+  - text: GitHub
     url: https://github.com/dominickp
     icon: simple-icons:github
-  - text: Dominick-Peluso-Bose
+  - text: GitHub(Bose)
     url: https://github.com/Dominick-Peluso-Bose
     icon: simple-icons:github
+    add_class: hide-mobile
   - text: LinkedIn
     url: https://www.linkedin.com/in/dominickpeluso/
     icon: simple-icons:linkedin
 itg_links:
-  - text: Dom_ITG
+  - text: Twitch
     url: https://www.twitch.tv/dom_itg
     icon: simple-icons:twitch
-  - text: Dom_ITG
+  - text: YouTube
     url: https://www.youtube.com/channel/UCpeNRVOVrqx_lras7hbOOrQ
     icon: simple-icons:youtube
-  - text: ITG Wiki
+  - text: ITGWiki
     url: https://itgwiki.dominick.cc/
     icon: simple-icons:wikipedia
 contact_links:
@@ -45,7 +46,7 @@ contact_links:
 
         <div>
             {% for link in personal_links %}
-                <a class="button" href="{{ link.url }}" target="_blank">
+                <a class="button {{link.add_class}}" href="{{ link.url }}" target="_blank">
                     <span class="iconify" data-icon="{{link.icon}}"></span>
                     {{ link.text }}
                 </a>
