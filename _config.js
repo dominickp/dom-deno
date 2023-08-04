@@ -18,6 +18,9 @@ site.copy(['.min.js'])
 // Grab all other static files
 site.copyRemainingFiles((path) => path.startsWith('/static/'))
 
+// Copy robots.txt
+site.copy('./robots.txt')
+
 // Minify HTML
 site.use(minifyHTML({ options: { keep_spaces_between_attributes: true } }))
 
