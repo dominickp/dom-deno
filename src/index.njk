@@ -2,9 +2,6 @@
 title: Dom's Homepage
 layout: layout.njk
 personal_links:
-  - text: Resume
-    url: /static/resume.pdf
-    icon: fa-solid:file-pdf
   - text: GitHub
     url: https://github.com/dominickp
     icon: simple-icons:github
@@ -45,6 +42,16 @@ contact_links:
         </p>
 
         <div>
+            <a
+                href="#"
+                class="button"
+                data-link="L3N0YXRpYy9yZXN1bWUucGRm"
+                onfocus="this.href = atob(this.dataset.link) || ''"
+                target="_blank"
+                >
+                <span class="iconify" data-icon="fa-solid:file-pdf"></span>
+                Resume
+            </a>
             {% for link in personal_links %}
                 <a class="button {{link.add_class}}" href="{{ link.url }}" target="_blank">
                     <span class="iconify" data-icon="{{link.icon}}"></span>
@@ -91,6 +98,7 @@ contact_links:
             data-contact="ZG9tQGRvbWluaWNrLmNj"
             data-subj="SGV5IERvbQ=="
             onfocus="this.href = 'mailto:' + atob(this.dataset.contact) + '?subject=' + atob(this.dataset.subj || '')"
+            target="_blank"
             >
             <span class="iconify" data-icon="material-symbols:mail-outline"></span>
             Email
