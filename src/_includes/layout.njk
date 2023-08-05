@@ -71,7 +71,13 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="twelve column">{{comp.dominick_logo_svg() | safe}}</div>
+        <div class="twelve column">
+          {% if not use_404_logo %}
+            {{comp.dominick_logo_svg() | safe}}
+          {% else %}
+            {{comp.404_svg() | safe}}
+          {% endif %}
+        </div>
       </div>
       {{ content | safe }}
     </div>
