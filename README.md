@@ -2,6 +2,6 @@
 
 deno task lume
 
-# Start a local server
+# Start the local development server
 
 deno task lume --serve
