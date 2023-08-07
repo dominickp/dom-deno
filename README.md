@@ -1,7 +1,15 @@
-# Build
+# dominick.cc
 
-deno task lume
+Dom's personal site.
 
-# Start the local development server
+This website is generated with Lume on Deno. The animations were made with
+Anime.js. Changes to the GitHub repo trigger GitHub Actions to update Deno
+Deploy, where it is hosted at the edge.
 
-deno task lume --serve
+## Build
+
+`deno task lume`
+
+## Start the local development server
+
+`deno task lume --serve`
