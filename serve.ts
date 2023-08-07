@@ -1,7 +1,7 @@
-import Server from "https:/deno.land/x/lume/core/server.ts";
-import cache_busting from "https:/deno.land/x/lume/middlewares/cache_busting.ts";
-import not_found from "https:/deno.land/x/lume/middlewares/not_found.ts";
-import www from "https:/deno.land/x/lume/middlewares/www.ts";
+import Server from "https://deno.land/x/lume@v1.18.4/core/server.ts";
+import cache_busting from "https://deno.land/x/lume@v1.18.4/middlewares/cache_busting.ts";
+import not_found from "https://deno.land/x/lume@v1.18.4/middlewares/not_found.ts";
+import www from "https://deno.land/x/lume@v1.18.4/middlewares/www.ts";
 
 const server = new Server({
   port: 8000,
