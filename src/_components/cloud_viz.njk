@@ -1,33 +1,33 @@
-<div class="demo-content staggering-axis-grid-demo">
-    <script>
-        document.addEventListener("DOMContentLoaded", function (event) {
-            anime({
-                targets: '.staggering-axis-grid-demo .el',
-                loop: true,
-                scale: [
-                    {
-                        value: .1,
-                        easing: 'easeOutSine',
-                        duration: 500
-                    }, {
-                        value: 1,
-                        easing: 'easeInOutQuad',
-                        duration: 1200
-                    }, {
-                        value: 1,
-                        easing: 'easeInOutQuad',
-                        duration: 3200
-                    }
+<script>
+    document.addEventListener("DOMContentLoaded", function (event) {
+        anime({
+            targets: '.staggering-axis-grid-demo .el',
+            loop: true,
+            scale: [
+                {
+                    value: .1,
+                    easing: 'easeOutSine',
+                    duration: 500
+                }, {
+                    value: 1,
+                    easing: 'easeInOutQuad',
+                    duration: 1200
+                }, {
+                    value: 1,
+                    easing: 'easeInOutQuad',
+                    duration: 3200
+                }
+            ],
+            delay: anime.stagger(200, {
+                grid: [
+                    10, 10
                 ],
-                delay: anime.stagger(200, {
-                    grid: [
-                        10, 10
-                    ],
-                    from: 'center'
-                })
-            });
+                from: 'center'
+            })
         });
-    </script>
+    });
+</script>
+<div class="demo-content staggering-axis-grid-demo">
     <div class="grid">
         {% for i in range(0, num_squares) -%}
             <div class="small square el"></div>

@@ -2,12 +2,16 @@ import lume from 'lume/mod.ts'
 import lightningCss from 'lume/plugins/lightningcss.ts'
 import minifyHTML from 'lume/plugins/minify_html.ts'
 import cache_busting from 'https://deno.land/x/lume@v1.18.4/middlewares/cache_busting.ts'
+import serveCLI from './serveCLI.ts'
 
 const site = lume({
     src: './src',
     server: {
         page404: './not-found/index.html',
-        middlewares: [cache_busting({ regex: /\/v[\d]+\//, replacement: '/' })],
+        middlewares: [
+            cache_busting({ regex: /\/v[\d]+\//, replacement: '/' }),
+            serveCLI(),
+        ],
     },
 })
 

@@ -92,23 +92,25 @@ contact_links:
     <div class="column">
         <h1>Contact</h1>
         <p>Want to chat? Shoot me an email or jump on my IRC server. If you don't have an IRC client, you can connect via the web client.</p>
-        <a
-            href="#"
-            class="button"
-            data-contact="ZG9tQGRvbWluaWNrLmNj"
-            data-subj="SGV5IERvbQ=="
-            onfocus="this.href = 'mailto:' + atob(this.dataset.contact) + '?subject=' + atob(this.dataset.subj || '')"
-            target="_blank"
-            >
-            <span class="iconify" data-icon="material-symbols:mail-outline"></span>
-            Email
-        </a>
-        {% for link in contact_links %}
-            <a class="button" href="{{ link.url }}" target="_blank">
-                <span class="iconify" data-icon="{{link.icon}}"></span>
-                {{ link.text }}
+        <div>
+            <a
+                href="#"
+                class="button"
+                data-contact="ZG9tQGRvbWluaWNrLmNj"
+                data-subj="SGV5IERvbQ=="
+                onfocus="this.href = 'mailto:' + atob(this.dataset.contact) + '?subject=' + atob(this.dataset.subj || '')"
+                target="_blank"
+                >
+                <span class="iconify" data-icon="material-symbols:mail-outline"></span>
+                Email
             </a>
-        {% endfor %}
+            {% for link in contact_links %}
+                <a class="button" href="{{ link.url }}" target="_blank">
+                    <span class="iconify" data-icon="{{link.icon}}"></span>
+                    {{ link.text }}
+                </a>
+            {% endfor %}
+        </div>
     </div>
 </div>
 <hr/>
