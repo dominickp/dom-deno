@@ -82,16 +82,19 @@ function generateTextFromHTML(original_response_html: string) {
 
 export default function serveCLI(): Middleware {
   return async (request, next) => {
-    const response = await next(request);
     const userAgent = request.headers.get("User-Agent");
-    const { status } = response;
-
-    const response_headers = new Headers();
-    response_headers.append("Content-Type", "text/plain");
-
-    const new_plaintext_response = generateTextFromHTML(await response.text());
 
     if (userAgent?.toLowerCase().startsWith("curl")) {
+      const response = await next(request);
+      const { status } = response;
+
+      const response_headers = new Headers();
+      response_headers.append("Content-Type", "text/plain");
+
+      const new_plaintext_response = generateTextFromHTML(
+        await response.text(),
+      );
+
       return new Response(new_plaintext_response, {
         status,
         headers: response_headers,
