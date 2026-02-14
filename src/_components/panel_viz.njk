@@ -1,47 +1,53 @@
 <script>
-    document.addEventListener("DOMContentLoaded", function (event) {
+    document.addEventListener("DOMContentLoaded", function () {
+        var tl = anime.timeline({ easing: 'linear', duration: 1000, loop: true });
 
-        var tl = anime.timeline({easing: 'linear', duration: 1000, loop: true});
-        //"rgba(255,255,255, .2)"
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#left', // left on
-            fill: "rgba(255,255,255,3)"
-        }, 250)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#left', // left off
-            fill: "rgba(255,255,255, .2)"
-        }, 500)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#up', // up on
-            fill: "rgba(255,255,255,3)"
-        }, 500)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#up', // up off
-            fill: "rgba(255,255,255, .2)"
-        }, 750)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#down', // down on
-            fill: "rgba(255,255,255,3)"
-        }, 750)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#down', // down off
-            fill: "rgba(255,255,255, .2)"
-        }, 1000)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#right', // right on
-            fill: "rgba(255,255,255,3)"
-        }, 1000)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#right', // right off
-            fill: "rgba(255,255,255, .2)"
-        }, 1250)
-        tl.add({
-            targets: '#itg-viz-wrapper .panel#right', // right off
-            fill: "rgba(255,255,255, .2)"
-        }, 4000)
+        function hit(lane, at) {
+            tl.add({
+                targets: '#itg-viz-wrapper .panel#' + lane,
+                fill: 'rgba(255,255,255,0.9)',
+                scale: 1.08,
+                duration: 120,
+                easing: 'easeOutQuad'
+            }, at);
+            tl.add({
+                targets: '#itg-viz-wrapper .panel#' + lane,
+                fill: 'rgba(255,255,255,0.2)',
+                scale: 1,
+                duration: 260,
+                easing: 'easeOutQuad'
+            }, at + 120);
+            tl.add({
+                targets: '#itg-viz-wrapper .hit-ring[data-lane="' + lane + '"]',
+                opacity: [0, 0.8, 0],
+                scale: [0.6, 1.6],
+                duration: 300,
+                easing: 'easeOutQuad'
+            }, at);
+        }
+
+        hit('left', 250);
+        hit('up', 500);
+        hit('down', 750);
+        hit('right', 1000);
+        hit('left', 1600);
+        hit('up', 1850);
+        hit('right', 2100);
+        hit('down', 2350);
+
     });
 </script>
 <div id="itg-viz-wrapper">
+    <div class="itg-lanes">
+        <span class="itg-lane" data-lane="left"></span>
+        <span class="itg-lane" data-lane="up"></span>
+        <span class="itg-lane" data-lane="down"></span>
+        <span class="itg-lane" data-lane="right"></span>
+    </div>
+    <span class="hit-ring" data-lane="left"></span>
+    <span class="hit-ring" data-lane="up"></span>
+    <span class="hit-ring" data-lane="down"></span>
+    <span class="hit-ring" data-lane="right"></span>
     {{comp.panel_svg({ id: "left" }) | await | safe}}
     {{comp.panel_svg({ id: "up" }) | await | safe}}
     {{comp.panel_svg({ id: "down" }) | await | safe}}
