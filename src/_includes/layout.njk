@@ -30,20 +30,6 @@
 
       // self executing function here
       document.addEventListener("DOMContentLoaded", function (event) {
-        anime({
-          targets: '#dom-logo path',
-          strokeDashoffset: [
-            anime.setDashoffset, 0
-          ],
-          easing: "linear", //easeInOutSine
-          duration: 14500,
-          delay: function (el, i) {
-            return i * 250
-          },
-          direction: "normal", // alternate
-          loop: true
-        });
-
         // Alter background image/color randomly
         const max = 120;
         const r = Math.round(Math.random() * (max - 0) + 0)
@@ -59,6 +45,10 @@
           .querySelector("html")
           .style
           .backgroundColor = `rgba(${r}, ${g}, ${b}, 0.8)`;
+        document
+          .querySelector("html")
+          .style
+          .setProperty('--accent-rgb', `${r}, ${g}, ${b}`);
 
         // Change the text selection color
         const ss = document.styleSheets[0]
@@ -74,6 +64,7 @@
         <div class="twelve column">
           {% if not use_404_logo %}
             {{comp.dominick_logo_svg() | await | safe}}
+            {{comp.dom_logo_viz() | await | safe}}
           {% else %}
             {{comp.404_svg() | await | safe}}
           {% endif %}

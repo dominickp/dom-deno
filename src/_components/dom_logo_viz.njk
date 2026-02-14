@@ -1,0 +1,49 @@
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const drawDuration = 11500;
+    const tracerDelay = 150;
+    const pulseDuration = 500;
+
+    anime.timeline({
+      loop: true
+    })
+      .add({
+        targets: '#dom-logo .dom-logo-main',
+        opacity: [0, 1],
+        easing: "linear",
+        duration: 240
+      }, 0)
+      .add({
+        targets: '#dom-logo .dom-logo-main',
+        strokeDashoffset: [
+          anime.setDashoffset, 0
+        ],
+        easing: "linear",
+        duration: drawDuration,
+        delay: function (el, i) {
+          return i * 250;
+        }
+      }, 0)
+      .add({
+        targets: '#dom-logo .dom-logo-main',
+        strokeOpacity: [1, 0.75, 1],
+        easing: "easeInOutSine",
+        duration: pulseDuration
+      }, drawDuration - 200);
+
+    anime({
+      targets: '#dom-logo .dom-logo-tracer',
+      strokeDashoffset: [
+        anime.setDashoffset, 0
+      ],
+      opacity: [0, 1, 0],
+      easing: "linear",
+      duration: drawDuration,
+      delay: function (el, i) {
+        return tracerDelay + i * 250;
+      },
+      direction: "normal",
+      loop: true
+    });
+  });
+</script>

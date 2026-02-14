@@ -5,12 +5,33 @@ html {
     background-color: rgb(100, 100, 100);
     background-size: cover;
     background-position: 0 35%;
+    --accent-rgb: 120, 200, 255;
 }
 
 svg#dom-logo {
     width: 100%;
     margin: 0;
     min-height: 200px;
+}
+
+#dom-logo path {
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+#dom-logo .dom-logo-main {
+    stroke: rgba(255, 255, 255, 0.95);
+    stroke-width: 1.1;
+    fill: none;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.25));
+}
+
+#dom-logo .dom-logo-tracer {
+    stroke: rgba(var(--accent-rgb), 0.9);
+    stroke-width: 0.8;
+    fill: none;
+    opacity: 0;
+    filter: drop-shadow(0 0 12px rgba(var(--accent-rgb), 0.45));
 }
 
 h1 {
@@ -108,38 +129,42 @@ body {
 
 #itg-viz-wrapper .itg-lane {
     position: absolute;
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0));
+    background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08),
+        rgba(255, 255, 255, 0)
+    );
     border-radius: 999px;
     opacity: 0.7;
 }
 
-#itg-viz-wrapper .itg-lane[data-lane="left"],
-#itg-viz-wrapper .itg-lane[data-lane="right"] {
+#itg-viz-wrapper .itg-lane[data-lane='left'],
+#itg-viz-wrapper .itg-lane[data-lane='right'] {
     width: 120px;
     height: 2px;
     top: 120px;
 }
 
-#itg-viz-wrapper .itg-lane[data-lane="left"] {
+#itg-viz-wrapper .itg-lane[data-lane='left'] {
     left: 0px;
 }
 
-#itg-viz-wrapper .itg-lane[data-lane="right"] {
+#itg-viz-wrapper .itg-lane[data-lane='right'] {
     left: 120px;
 }
 
-#itg-viz-wrapper .itg-lane[data-lane="up"],
-#itg-viz-wrapper .itg-lane[data-lane="down"] {
+#itg-viz-wrapper .itg-lane[data-lane='up'],
+#itg-viz-wrapper .itg-lane[data-lane='down'] {
     width: 2px;
     height: 120px;
     left: 120px;
 }
 
-#itg-viz-wrapper .itg-lane[data-lane="up"] {
+#itg-viz-wrapper .itg-lane[data-lane='up'] {
     top: 0px;
 }
 
-#itg-viz-wrapper .itg-lane[data-lane="down"] {
+#itg-viz-wrapper .itg-lane[data-lane='down'] {
     top: 120px;
 }
 
@@ -153,22 +178,22 @@ body {
     pointer-events: none;
 }
 
-#itg-viz-wrapper .hit-ring[data-lane="left"] {
+#itg-viz-wrapper .hit-ring[data-lane='left'] {
     left: 28px;
     top: 108px;
 }
 
-#itg-viz-wrapper .hit-ring[data-lane="right"] {
+#itg-viz-wrapper .hit-ring[data-lane='right'] {
     left: 188px;
     top: 108px;
 }
 
-#itg-viz-wrapper .hit-ring[data-lane="up"] {
+#itg-viz-wrapper .hit-ring[data-lane='up'] {
     left: 108px;
     top: 28px;
 }
 
-#itg-viz-wrapper .hit-ring[data-lane="down"] {
+#itg-viz-wrapper .hit-ring[data-lane='down'] {
     left: 108px;
     top: 188px;
 }
