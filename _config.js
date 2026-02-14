@@ -33,6 +33,9 @@ site.add('static')
 // Copy robots.txt
 site.copy('./robots.txt')
 
+// Copy _headers file for cache control (Deno Deploy/Cloudflare)
+site.copy('./_headers')
+
 // Minify HTML
 // NOTE: Preserve script tag attributes to maintain Cloudflare beacon SRI integrity validation
 // Cloudflare injects a beacon script with SRI hash - if minification modifies the script tag
