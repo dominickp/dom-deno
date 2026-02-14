@@ -9,6 +9,8 @@ const server = new Server({
     root: `${Deno.cwd()}/_site`,
 })
 
+server.use(cache_busting({ regex: /\/v[\d]+\//, replacement: '/' }))
+
 server.use(
     not_found({
         root: `${Deno.cwd()}/_site`,
@@ -16,7 +18,6 @@ server.use(
         directoryIndex: false,
     })
 )
-server.use(cache_busting({ regex: /\/v[\d]+\//, replacement: '/' }))
 
 server.use(
     www({
