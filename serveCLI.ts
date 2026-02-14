@@ -104,20 +104,29 @@ export default function serveCLI(): Middleware {
 
         // Add cache control headers
         const responseHeaders = new Headers(response.headers)
-        
+
         // No cache for HTML files
         if (url.pathname.endsWith('.html') || url.pathname.endsWith('/')) {
-            responseHeaders.set('Cache-Control', 'no-cache, no-store, must-revalidate')
+            responseHeaders.set(
+                'Cache-Control',
+                'no-cache, no-store, must-revalidate'
+            )
             responseHeaders.set('Pragma', 'no-cache')
             responseHeaders.set('Expires', '0')
         }
         // Long cache for static assets with version strings
         else if (url.pathname.includes('/v') && /\/v\d+\//.test(url.pathname)) {
-            responseHeaders.set('Cache-Control', 'public, max-age=31536000, immutable')
+            responseHeaders.set(
+                'Cache-Control',
+                'public, max-age=31536000, immutable'
+            )
         }
         // Default: revalidate static assets
         else if (url.pathname.startsWith('/static/')) {
-            responseHeaders.set('Cache-Control', 'public, max-age=3600, must-revalidate')
+            responseHeaders.set(
+                'Cache-Control',
+                'public, max-age=3600, must-revalidate'
+            )
         }
 
         return new Response(response.body, {
