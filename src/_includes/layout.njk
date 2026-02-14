@@ -73,9 +73,9 @@
       <div class="row">
         <div class="twelve column">
           {% if not use_404_logo %}
-            {{comp.dominick_logo_svg() | safe}}
+            {{comp.dominick_logo_svg() | await | safe}}
           {% else %}
-            {{comp.404_svg() | safe}}
+            {{comp.404_svg() | await | safe}}
           {% endif %}
         </div>
       </div>

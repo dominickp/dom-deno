@@ -42,8 +42,8 @@
     });
 </script>
 <div id="itg-viz-wrapper">
-    {{comp.panel_svg({ id: "left" }) | safe}}
-    {{comp.panel_svg({ id: "up" }) | safe}}
-    {{comp.panel_svg({ id: "down" }) | safe}}
-    {{comp.panel_svg({ id: "right" }) | safe}}
+    {{comp.panel_svg({ id: "left" }) | await | safe}}
+    {{comp.panel_svg({ id: "up" }) | await | safe}}
+    {{comp.panel_svg({ id: "down" }) | await | safe}}
+    {{comp.panel_svg({ id: "right" }) | await | safe}}
 </div>

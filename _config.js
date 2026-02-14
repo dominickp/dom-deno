@@ -1,9 +1,9 @@
 import lume from 'lume/mod.ts'
 import lightningCss from 'lume/plugins/lightningcss.ts'
 import minifyHTML from 'lume/plugins/minify_html.ts'
-import cache_busting from 'https://deno.land/x/lume@v1.18.4/middlewares/cache_busting.ts'
-import serveCLI from './serveCLI.ts'
 import nunjucks from 'lume/plugins/nunjucks.ts'
+import cache_busting from 'lume/middlewares/cache_busting.ts'
+import serveCLI from './serveCLI.ts'
 
 const site = lume({
     src: './src',
@@ -18,14 +18,17 @@ const site = lume({
 
 site.use(nunjucks())
 
+// Add CSS files
+site.add(['.css'])
+
 // Minify CSS
 site.use(lightningCss({ extensions: ['.css'] }))
 
 // Copy in anime.min.js
 site.copy(['.min.js'])
 
-// Grab all other static files
-site.copyRemainingFiles((path) => path.startsWith('/static/'))
+// Add static files
+site.add('static')
 
 // Copy robots.txt
 site.copy('./robots.txt')

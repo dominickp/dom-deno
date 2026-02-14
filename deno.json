@@ -1,11 +1,13 @@
 {
   "tasks": {
-    "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable -A -",
+    "lume": "echo \"import 'lume/cli.ts'\" | deno run --unstable-temporal -A -",
     "build": "deno task lume",
     "serve": "deno task lume -s",
     "build-serve": "deno task build && deno run -A serve.ts"
   },
   "imports": {
-    "lume/": "https://deno.land/x/lume@v2.0.3/"
-  }
+    "lume/": "https://deno.land/x/lume@v3.2.1/",
+    "deno-dom": "https://deno.land/x/deno_dom@v0.1.56/deno-dom-wasm.ts"
+  },
+  "unstable": ["temporal"]
 }

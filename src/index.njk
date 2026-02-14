@@ -61,7 +61,7 @@ contact_links:
         </div>
     </div>
     <div class="one-third column">
-        {{comp.cloud_viz({"num_squares": 100}) | safe}}
+        {{comp.cloud_viz({"num_squares": 100}) | await | safe}}
 
     </div>
 </div>
@@ -84,7 +84,7 @@ contact_links:
         </div>
     </div>
     <div class="one-third column">
-        {{comp.panel_viz() | safe}}
+        {{comp.panel_viz() | await | safe}}
     </div>
 </div>
 <hr/>
