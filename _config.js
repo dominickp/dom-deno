@@ -37,13 +37,15 @@ site.copy('./robots.txt')
 // NOTE: Preserve script tag attributes to maintain Cloudflare beacon SRI integrity validation
 // Cloudflare injects a beacon script with SRI hash - if minification modifies the script tag
 // structure/attributes, the hash validation fails and the script is blocked by the browser
-site.use(minifyHTML({ 
-    options: { 
-        keep_spaces_between_attributes: true,
-        keep_ssi_data_attributes: true,
-        preserve_entities: true,
-        remove_empty_attributes: false,
-    } 
-}))
+site.use(
+    minifyHTML({
+        options: {
+            keep_spaces_between_attributes: true,
+            keep_ssi_data_attributes: true,
+            preserve_entities: true,
+            remove_empty_attributes: false,
+        },
+    })
+)
 
 export default site
