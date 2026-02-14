@@ -23,12 +23,6 @@ itg_links:
     url: https://itgwiki.dominick.cc/
     icon: simple-icons:wikipedia
 contact_links:
-  - text: Webchat
-    url: https://irc.dominick.cc/
-    icon: mdi:chat-outline
-  - text: irc.dominick.cc
-    url: ircs://irc.dominick.cc:6697
-    icon: file-icons:mirc
 ---
 
 <div class="row">
@@ -67,6 +61,29 @@ contact_links:
 </div>
 <hr/>
 <div class="row">
+    <div class="column">
+        <h1>Fun Projects</h1>
+        <p>
+            I like to tinker with hardware and software projects in my spare time.
+        </p>
+        <div>
+            <a class="button" href="https://led.dominick.cc/" target="_blank">
+                <span class="iconify" data-icon="mdi:led-strip-variant"></span>
+                LED Sign Simulator
+            </a>
+            <a class="button" href="https://github.com/dominickp/gall" target="_blank">
+                <span class="iconify" data-icon="mdi:view-gallery-outline"></span>
+                go-masonry-gallery
+            </a>
+            <a class="button" href="https://www.youtube.com/playlist?list=PL2vUwLUVuyIy4CD8DEwS7oZ_Y41vyYWWy" target="_blank">
+                <span class="iconify" data-icon="simple-icons:youtube"></span>
+                Dance Pad Build Series
+            </a>
+        </div>
+    </div>
+</div>
+<hr/>
+<div class="row">
     <div class="two-thirds column">
         <h1>In The Groove</h1>
         <p>
@@ -91,7 +108,7 @@ contact_links:
 <div class="row">
     <div class="column">
         <h1>Contact</h1>
-        <p>Want to chat? Shoot me an email or jump on my IRC server. If you don't have an IRC client, you can connect via the web client.</p>
+        <p>Want to get in touch? Feel free to reach out via email.</p>
         <div>
             <a
                 href="#"
@@ -104,12 +121,6 @@ contact_links:
                 <span class="iconify" data-icon="material-symbols:mail-outline"></span>
                 Email
             </a>
-            {% for link in contact_links %}
-                <a class="button" href="{{ link.url }}" target="_blank">
-                    <span class="iconify" data-icon="{{link.icon}}"></span>
-                    {{ link.text }}
-                </a>
-            {% endfor %}
         </div>
     </div>
 </div>
