@@ -73,7 +73,7 @@
 
     <!-- Producer A -->
     <rect x="78" y="4" width="134" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <text x="145" y="26" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Arial, sans-serif">Producer A</text>
+    <text x="145" y="26" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="13" font-family="Arial, sans-serif">Producer A</text>
 
     <!-- Fan-out: Producer → T1 partitions -->
     <line x1="145" y1="38" x2="100" y2="84" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
@@ -102,13 +102,13 @@
 
     <!-- Service B1 -->
     <rect x="15" y="152" width="120" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <text x="75" y="174" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-family="Arial, sans-serif">Service B1</text>
+    <text x="75" y="174" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="12" font-family="Arial, sans-serif">Service B1</text>
     <rect class="process-b1" x="17" y="180" width="0" height="5" rx="1" fill="rgba(100,220,255,0.85)"/>
     <text x="75" y="200" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Arial, sans-serif">[p0, p1]</text>
 
     <!-- Service B2 -->
     <rect x="155" y="152" width="120" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <text x="215" y="174" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-family="Arial, sans-serif">Service B2</text>
+    <text x="215" y="174" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="12" font-family="Arial, sans-serif">Service B2</text>
     <rect class="process-b2" x="157" y="180" width="0" height="5" rx="1" fill="rgba(100,220,255,0.85)"/>
     <text x="215" y="200" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Arial, sans-serif">[p2, p3]</text>
 
@@ -138,15 +138,15 @@
 
     <!-- Consumer C -->
     <rect x="78" y="304" width="134" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
-    <text x="145" y="326" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Arial, sans-serif">Consumer C</text>
+    <text x="145" y="326" text-anchor="middle" fill="rgba(255,255,255,0.65)" font-size="13" font-family="Arial, sans-serif">Consumer C</text>
 
     <!-- Animated message dots -->
 
     <!-- Dot 0: route-p0 → Service B1 (white) -->
-    <circle r="4" fill="rgba(255,255,255,0.85)" opacity="0">
+    <circle r="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="0s" calcMode="linear"
             keyPoints="0;0.23;0.23;0.50;0.50;0.76;0.76;1;1"
-            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.85;1">
             <mpath href="#route-p0"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="0s"
@@ -154,10 +154,10 @@
     </circle>
 
     <!-- Dot 1: route-p2 → Service B2 (white) -->
-    <circle r="4" fill="rgba(255,255,255,0.85)" opacity="0">
+    <circle r="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="1.3s" calcMode="linear"
             keyPoints="0;0.17;0.17;0.50;0.50;0.82;0.82;1;1"
-            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.85;1">
             <mpath href="#route-p2"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="1.3s"
@@ -165,10 +165,10 @@
     </circle>
 
     <!-- Dot 2: route-p1 → Service B1 (white) -->
-    <circle r="4" fill="rgba(255,255,255,0.85)" opacity="0">
+    <circle r="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="2.7s" calcMode="linear"
             keyPoints="0;0.18;0.18;0.50;0.50;0.81;0.81;1;1"
-            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.85;1">
             <mpath href="#route-p1"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="2.7s"
@@ -176,10 +176,10 @@
     </circle>
 
     <!-- Dot 3: route-p3 → Service B2 (white) -->
-    <circle r="4" fill="rgba(255,255,255,0.85)" opacity="0">
+    <circle r="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="4.0s" calcMode="linear"
             keyPoints="0;0.22;0.22;0.50;0.50;0.78;0.78;1;1"
-            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.85;1">
             <mpath href="#route-p3"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="4.0s"
@@ -187,10 +187,10 @@
     </circle>
 
     <!-- Dot 4: route-p0 → Service B1 (white) -->
-    <circle r="4" fill="rgba(255,255,255,0.85)" opacity="0">
+    <circle r="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="5.3s" calcMode="linear"
             keyPoints="0;0.23;0.23;0.50;0.50;0.76;0.76;1;1"
-            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.85;1">
             <mpath href="#route-p0"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="5.3s"
@@ -198,10 +198,10 @@
     </circle>
 
     <!-- Dot 5: route-p2 → Service B2 (white) -->
-    <circle r="4" fill="rgba(255,255,255,0.85)" opacity="0">
+    <circle r="4" fill="none" stroke="rgba(255,255,255,0.9)" stroke-width="1.5" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="6.7s" calcMode="linear"
             keyPoints="0;0.17;0.17;0.50;0.50;0.82;0.82;1;1"
-            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.85;1">
             <mpath href="#route-p2"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="6.7s"
