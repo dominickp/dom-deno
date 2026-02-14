@@ -3,7 +3,7 @@
         // Service B1 processing bar (fills left-to-right while "working")
         anime({
             targets: '#pipeline-viz .process-b1',
-            width: [0, 106],
+            width: [0, 116],
             easing: 'easeInOutSine',
             duration: 2000,
             direction: 'alternate',
@@ -13,7 +13,7 @@
         // Service B2 processing bar
         anime({
             targets: '#pipeline-viz .process-b2',
-            width: [0, 106],
+            width: [0, 116],
             easing: 'easeInOutSine',
             duration: 2400,
             direction: 'alternate',
@@ -21,11 +21,11 @@
             delay: 1300
         });
 
-        // Lag build-up on Topic α partition 2 (Service B2 is busy)
+        // Lag build-up on T1 partition 2 (Service B2 is busy)
         anime({
             targets: '#pipeline-viz .lag-a2',
-            height: [0, 14, 14, 0],
-            y: [97, 83, 83, 97],
+            height: [0, 16, 16, 0],
+            y: [102, 86, 86, 102],
             easing: 'easeInOutSine',
             duration: 12000,
             loop: true,
@@ -40,11 +40,11 @@
             delay: 3000
         });
 
-        // Lag on Topic β partition 3
+        // Lag on T2 partition 3
         anime({
             targets: '#pipeline-viz .lag-b3',
-            height: [0, 14, 0],
-            y: [237, 223, 237],
+            height: [0, 16, 0],
+            y: [254, 238, 254],
             easing: 'easeInOutSine',
             duration: 8000,
             loop: true,
@@ -63,91 +63,91 @@
 
 <svg id="pipeline-viz" width="290" height="348" viewBox="0 0 290 348" xmlns="http://www.w3.org/2000/svg">
     <defs>
-        <!-- Hidden route paths for dots to follow via animateMotion -->
-        <path id="route-p0" d="M 145,33 L 145,75 L 114,89 C 114,120 80,140 80,172 L 80,186 C 80,207 145,207 145,229 L 114,229 L 145,233 L 145,328"/>
-        <path id="route-p1" d="M 145,33 L 145,75 L 139,89 C 139,120 80,140 80,172 L 80,186 C 80,207 145,207 145,229 L 139,229 L 145,233 L 145,328"/>
-        <path id="route-p2" d="M 145,33 L 145,75 L 164,89 C 164,120 210,140 210,172 L 210,186 C 210,207 145,207 145,229 L 164,229 L 145,233 L 145,328"/>
-        <path id="route-p3" d="M 145,33 L 145,75 L 189,89 C 189,120 210,140 210,172 L 210,186 C 210,207 145,207 145,229 L 189,229 L 145,233 L 145,328"/>
+        <path id="route-p0" d="M 145,38 L 100,93 C 100,120 75,135 75,169 C 75,200 100,222 100,245 L 145,304"/>
+        <path id="route-p1" d="M 145,38 L 128,93 C 128,120 75,135 75,169 C 75,200 128,222 128,245 L 145,304"/>
+        <path id="route-p2" d="M 145,38 L 156,93 C 156,120 215,135 215,169 C 215,200 156,222 156,245 L 145,304"/>
+        <path id="route-p3" d="M 145,38 L 184,93 C 184,120 215,135 215,169 C 215,200 184,222 184,245 L 145,304"/>
     </defs>
 
     <!-- ===== STATIC LAYOUT ===== -->
 
     <!-- Producer A -->
-    <rect x="95" y="5" width="100" height="28" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <text x="145" y="24" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-family="Arial, sans-serif">Producer A</text>
+    <rect x="78" y="4" width="134" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <text x="145" y="26" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Arial, sans-serif">Producer A</text>
 
-    <!-- Connector: Producer → Topic α -->
-    <line x1="145" y1="33" x2="145" y2="75" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-    <path d="M 141,68 L 145,75 L 149,68" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
+    <!-- Fan-out: Producer → T1 partitions -->
+    <line x1="145" y1="38" x2="100" y2="84" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <line x1="145" y1="38" x2="128" y2="84" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <line x1="145" y1="38" x2="156" y2="84" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <line x1="145" y1="38" x2="184" y2="84" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
 
-    <!-- Topic α -->
-    <rect x="55" y="75" width="180" height="28" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-    <text x="75" y="93" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Arial, sans-serif">α</text>
+    <!-- Topic T1 -->
+    <rect x="35" y="76" width="220" height="34" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <text x="57" y="98" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="13" font-family="Arial, sans-serif">T1</text>
     <!-- Partition slots -->
-    <rect x="105" y="81" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <rect x="130" y="81" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <rect x="155" y="81" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <rect x="180" y="81" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <!-- Lag bar for α partition 2 -->
-    <rect class="lag-a2" x="157" y="97" width="14" height="0" rx="1" fill="rgba(255,255,255,0.05)"/>
+    <rect x="90" y="84" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <rect x="118" y="84" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <rect x="146" y="84" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <rect x="174" y="84" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <!-- Lag bar for T1 partition 2 -->
+    <rect class="lag-a2" x="148" y="102" width="16" height="0" rx="1" fill="rgba(255,255,255,0.05)"/>
 
-    <!-- Visible curves: Topic α → Service B1 (partitions 0,1) -->
-    <path d="M 114,97 C 114,120 80,140 80,158" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
-    <path d="M 139,97 C 139,120 80,140 80,158" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
+    <!-- Curves: T1 → Service B1 (partitions 0,1) -->
+    <path d="M 100,102 C 100,120 75,135 75,152" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <path d="M 128,102 C 128,120 75,135 75,152" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
 
-    <!-- Visible curves: Topic α → Service B2 (partitions 2,3) -->
-    <path d="M 164,97 C 164,120 210,140 210,158" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
-    <path d="M 189,97 C 189,120 210,140 210,158" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
+    <!-- Curves: T1 → Service B2 (partitions 2,3) -->
+    <path d="M 156,102 C 156,120 215,135 215,152" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <path d="M 184,102 C 184,120 215,135 215,152" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
 
     <!-- Service B1 -->
-    <rect x="25" y="158" width="110" height="28" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <text x="80" y="175" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-family="Arial, sans-serif">Service B1</text>
-    <rect class="process-b1" x="27" y="180" width="0" height="5" rx="1" fill="rgba(100,220,255,0.85)"/>
-    <text x="80" y="196" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Arial, sans-serif">[p0, p1]</text>
+    <rect x="15" y="152" width="120" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <text x="75" y="174" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-family="Arial, sans-serif">Service B1</text>
+    <rect class="process-b1" x="17" y="180" width="0" height="5" rx="1" fill="rgba(100,220,255,0.85)"/>
+    <text x="75" y="200" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Arial, sans-serif">[p0, p1]</text>
 
     <!-- Service B2 -->
-    <rect x="155" y="158" width="110" height="28" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <text x="210" y="175" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="10" font-family="Arial, sans-serif">Service B2</text>
+    <rect x="155" y="152" width="120" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <text x="215" y="174" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="12" font-family="Arial, sans-serif">Service B2</text>
     <rect class="process-b2" x="157" y="180" width="0" height="5" rx="1" fill="rgba(100,220,255,0.85)"/>
-    <text x="210" y="196" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="7" font-family="Arial, sans-serif">[p2, p3]</text>
+    <text x="215" y="200" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Arial, sans-serif">[p2, p3]</text>
 
-    <!-- Visible curves: Service B1 → Topic β -->
-    <path d="M 80,186 C 80,207 145,207 145,215" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
-    <!-- Visible curves: Service B2 → Topic β -->
-    <path d="M 210,186 C 210,207 145,207 145,215" stroke="rgba(255,255,255,0.25)" stroke-width="1" fill="none"/>
+    <!-- Curves: Service B1 → T2 -->
+    <path d="M 75,186 C 75,207 100,220 100,236" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <path d="M 75,186 C 75,207 128,220 128,236" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <!-- Curves: Service B2 → T2 -->
+    <path d="M 215,186 C 215,207 156,220 156,236" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <path d="M 215,186 C 215,207 184,220 184,236" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
 
-    <!-- Topic β -->
-    <rect x="55" y="215" width="180" height="28" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="1.5"/>
-    <text x="75" y="233" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-size="10" font-family="Arial, sans-serif">β</text>
+    <!-- Topic T2 -->
+    <rect x="35" y="228" width="220" height="34" rx="4" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.5)" stroke-width="2"/>
+    <text x="57" y="250" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-size="13" font-family="Arial, sans-serif">T2</text>
     <!-- Partition slots -->
-    <rect x="105" y="221" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <rect x="130" y="221" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <rect x="155" y="221" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <rect x="180" y="221" width="18" height="16" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1"/>
-    <!-- Lag bar for β partition 3 -->
-    <rect class="lag-b3" x="182" y="237" width="14" height="0" rx="1" fill="rgba(255,255,255,0.05)"/>
+    <rect x="90" y="236" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <rect x="118" y="236" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <rect x="146" y="236" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <rect x="174" y="236" width="20" height="18" rx="2" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+    <!-- Lag bar for T2 partition 3 -->
+    <rect class="lag-b3" x="176" y="254" width="16" height="0" rx="1" fill="rgba(255,255,255,0.05)"/>
 
-    <!-- Connector: Topic β → Consumer C -->
-    <line x1="145" y1="243" x2="145" y2="290" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
-    <path d="M 141,283 L 145,290 L 149,283" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
+    <!-- Fan-in: T2 partitions → Consumer C -->
+    <line x1="100" y1="254" x2="145" y2="304" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <line x1="128" y1="254" x2="145" y2="304" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <line x1="156" y1="254" x2="145" y2="304" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+    <line x1="184" y1="254" x2="145" y2="304" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
 
     <!-- Consumer C -->
-    <rect x="95" y="300" width="100" height="28" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="1.5"/>
-    <text x="145" y="318" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="11" font-family="Arial, sans-serif">Consumer C</text>
+    <rect x="78" y="304" width="134" height="34" rx="4" fill="rgba(255,255,255,0.25)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+    <text x="145" y="326" text-anchor="middle" fill="rgba(255,255,255,0.9)" font-size="13" font-family="Arial, sans-serif">Consumer C</text>
+    <text x="145" y="344" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="9" font-family="Arial, sans-serif">[p0, p1, p2, p3]</text>
 
-    <!-- ===== ANIMATED MESSAGE DOTS (native SVG animateMotion) ===== -->
-    <!--
-        keyPoints: positions along path (0=start, 1=end)
-        keyTimes:  when those positions are reached (0=start, 1=end of dur)
-        Repeated keyPoints = pause at that position (dot stays put)
-        Pauses at: partition slot (~0.23), service center (~0.43)
-    -->
+    <!-- Animated message dots -->
 
     <!-- Dot 0: route-p0 → Service B1 (red) -->
     <circle r="4" fill="rgba(255,120,120,0.85)" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="0s" calcMode="linear"
-            keyPoints="0;0.12;0.19;0.19;0.41;0.41;0.65;0.72;0.79;1;1"
-            keyTimes= "0;0.07;0.12;0.20;0.30;0.55;0.65;0.72;0.80;0.93;1">
+            keyPoints="0;0.23;0.23;0.50;0.50;0.76;0.76;1;1"
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
             <mpath href="#route-p0"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="0s"
@@ -157,8 +157,8 @@
     <!-- Dot 1: route-p2 → Service B2 (green) -->
     <circle r="4" fill="rgba(120,200,120,0.85)" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="1.3s" calcMode="linear"
-            keyPoints="0;0.11;0.18;0.18;0.43;0.43;0.69;0.73;0.78;1;1"
-            keyTimes= "0;0.07;0.12;0.20;0.30;0.55;0.65;0.72;0.80;0.93;1">
+            keyPoints="0;0.17;0.17;0.50;0.50;0.82;0.82;1;1"
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
             <mpath href="#route-p2"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="1.3s"
@@ -168,8 +168,8 @@
     <!-- Dot 2: route-p1 → Service B1 (blue) -->
     <circle r="4" fill="rgba(120,160,255,0.85)" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="2.7s" calcMode="linear"
-            keyPoints="0;0.10;0.16;0.16;0.45;0.45;0.73;0.74;0.76;1;1"
-            keyTimes= "0;0.07;0.12;0.20;0.30;0.55;0.65;0.72;0.80;0.93;1">
+            keyPoints="0;0.18;0.18;0.50;0.50;0.81;0.81;1;1"
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
             <mpath href="#route-p1"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="2.7s"
@@ -179,8 +179,8 @@
     <!-- Dot 3: route-p3 → Service B2 (amber) -->
     <circle r="4" fill="rgba(255,200,100,0.85)" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="4.0s" calcMode="linear"
-            keyPoints="0;0.14;0.21;0.21;0.39;0.39;0.62;0.71;0.80;1;1"
-            keyTimes= "0;0.07;0.12;0.20;0.30;0.55;0.65;0.72;0.80;0.93;1">
+            keyPoints="0;0.22;0.22;0.50;0.50;0.78;0.78;1;1"
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
             <mpath href="#route-p3"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="4.0s"
@@ -190,8 +190,8 @@
     <!-- Dot 4: route-p0 → Service B1 (purple) -->
     <circle r="4" fill="rgba(200,120,255,0.85)" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="5.3s" calcMode="linear"
-            keyPoints="0;0.12;0.19;0.19;0.41;0.41;0.65;0.72;0.79;1;1"
-            keyTimes= "0;0.07;0.12;0.20;0.30;0.55;0.65;0.72;0.80;0.93;1">
+            keyPoints="0;0.23;0.23;0.50;0.50;0.76;0.76;1;1"
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
             <mpath href="#route-p0"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="5.3s"
@@ -201,8 +201,8 @@
     <!-- Dot 5: route-p2 → Service B2 (teal) -->
     <circle r="4" fill="rgba(120,220,220,0.85)" opacity="0">
         <animateMotion dur="8s" repeatCount="indefinite" begin="6.7s" calcMode="linear"
-            keyPoints="0;0.11;0.18;0.18;0.43;0.43;0.69;0.73;0.78;1;1"
-            keyTimes= "0;0.07;0.12;0.20;0.30;0.55;0.65;0.72;0.80;0.93;1">
+            keyPoints="0;0.17;0.17;0.50;0.50;0.82;0.82;1;1"
+            keyTimes= "0;0.08;0.16;0.28;0.53;0.65;0.70;0.93;1">
             <mpath href="#route-p2"/>
         </animateMotion>
         <animate attributeName="opacity" dur="8s" repeatCount="indefinite" begin="6.7s"
