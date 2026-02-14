@@ -126,6 +126,7 @@ body {
 
 @media (max-width: 750px) {
     #itg-viz-wrapper,
+    #pipeline-viz,
     .demo-content {
         display: none;
     }
