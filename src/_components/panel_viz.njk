@@ -1,6 +1,11 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        var tl = anime.timeline({ easing: 'linear', duration: 1000, loop: true });
+        var tl = anime.timeline({
+        easing: 'linear',
+        duration: 1000,
+        loop: true,
+        endDelay: 3000 // pause before next loop
+    });
 
         function hit(lane, at) {
             tl.add({

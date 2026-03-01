@@ -1,37 +1,20 @@
 <script>
   document.addEventListener("DOMContentLoaded", function () {
+    const startDelay = 500;
     const drawDuration = 11500;
-    const tracerDelay = 150;
-    const pulseDuration = 500;
+    const tracerDelay = 50;
 
-    anime.timeline({
-      loop: true
-    })
-      .add({
-        targets: '#dom-logo .dom-logo-main',
-        opacity: [0, 1],
-        easing: "linear",
-        duration: 240
-      }, 0)
-      .add({
-        targets: '#dom-logo .dom-logo-main',
-        strokeDashoffset: [
-          anime.setDashoffset, 0
-        ],
-        easing: "linear",
-        duration: drawDuration,
-        delay: function (el, i) {
-          return i * 250;
-        }
-      }, 0)
-      .add({
-        targets: '#dom-logo .dom-logo-main',
-        strokeOpacity: [1, 0.75, 1],
-        easing: "easeInOutSine",
-        duration: pulseDuration
-      }, drawDuration - 200);
+    anime.set('#dom-logo .dom-logo-main', {
+      opacity: 1,
+      strokeDasharray: 0,
+      strokeDashoffset: 0
+    });
 
-    anime({
+    anime.set('#dom-logo .dom-logo-tracer', {
+      opacity: 0
+    });
+
+    const tracerAnimation = anime({
       targets: '#dom-logo .dom-logo-tracer',
       strokeDashoffset: [
         anime.setDashoffset, 0
@@ -43,7 +26,12 @@
         return tracerDelay + i * 250;
       },
       direction: "normal",
-      loop: true
+      loop: true,
+      autoplay: false
     });
+
+    setTimeout(function () {
+      tracerAnimation.play();
+    }, startDelay);
   });
 </script>
