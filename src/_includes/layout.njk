@@ -27,9 +27,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script>
+      function revealContactLink(link) {
+        const email = atob(link.dataset.contact || '');
+        const subject = atob(link.dataset.subj || '');
+        const label = link.querySelector('[data-contact-label]');
+
+        link.href = `mailto:${email}?subject=${subject}`;
+        link.dataset.revealed = 'true';
+
+        if (label) {
+          label.textContent = email;
+        }
+      }
+
+      function configureContactLinks() {
+        for (const link of document.querySelectorAll('a[data-contact]')) {
+          link.addEventListener('focus', function () {
+            revealContactLink(link);
+          });
+
+          link.addEventListener('mouseenter', function () {
+            revealContactLink(link);
+          });
+
+          link.addEventListener('click', function (event) {
+            if (link.dataset.revealed !== 'true') {
+              revealContactLink(link);
+              event.preventDefault();
+            }
+          });
+        }
+      }
 
       // self executing function here
       document.addEventListener("DOMContentLoaded", function (event) {
+        configureContactLinks();
+
         // Alter background image/color randomly
         const max = 120;
         const r = Math.round(Math.random() * (max - 0) + 0)
