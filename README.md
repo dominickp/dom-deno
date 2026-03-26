@@ -1,4 +1,4 @@
-# dominick.cc
+# dominick.cc 
 
 Dom's personal site, live at [dominick.cc](https://dominick.cc)
 
