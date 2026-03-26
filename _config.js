@@ -3,16 +3,12 @@ import lightningCss from 'lume/plugins/lightningcss.ts'
 import minifyHTML from 'lume/plugins/minify_html.ts'
 import nunjucks from 'lume/plugins/nunjucks.ts'
 import cache_busting from 'lume/middlewares/cache_busting.ts'
-import serveCLI from './serveCLI.ts'
 
 const site = lume({
     src: './src',
     server: {
-        page404: './not-found/index.html',
-        middlewares: [
-            cache_busting({ regex: /\/v[\d]+\//, replacement: '/' }),
-            serveCLI(),
-        ],
+        page404: './404.html',
+        middlewares: [cache_busting({ regex: /\/v[\d]+\//, replacement: '/' })],
     },
 })
 
@@ -32,9 +28,6 @@ site.add('static')
 
 // Copy robots.txt
 site.copy('./robots.txt')
-
-// Copy _headers file for cache control (Deno Deploy/Cloudflare)
-site.copy('./_headers')
 
 // Minify HTML
 // NOTE: Preserve script tag attributes to maintain Cloudflare beacon SRI integrity validation
