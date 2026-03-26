@@ -28,15 +28,20 @@
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
     <script>
       function revealContactLink(link) {
+        if (link.dataset.revealed === 'true') {
+          return;
+        }
+
         const email = atob(link.dataset.contact || '');
         const subject = atob(link.dataset.subj || '');
-        const label = link.querySelector('[data-contact-label]');
+        const emailLabel = link.querySelector('[data-contact-email]');
 
         link.href = `mailto:${email}?subject=${subject}`;
         link.dataset.revealed = 'true';
+        link.classList.add('is-revealed');
 
-        if (label) {
-          label.textContent = email;
+        if (emailLabel) {
+          emailLabel.textContent = email;
         }
       }
 
