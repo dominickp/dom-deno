@@ -18,6 +18,10 @@ Install [Deno](https://deno.land/#installation) if you haven't already.
 
 ## Development
 
+### Editor support
+
+This repo expects `.njk` files to open in a Nunjucks-aware language mode. The workspace recommends a Nunjucks extension in [.vscode/extensions.json](.vscode/extensions.json) and associates `*.njk` in [.vscode/settings.json](.vscode/settings.json).
+
 ### Build the site
 
 `deno task build`
@@ -28,8 +32,18 @@ Install [Deno](https://deno.land/#installation) if you haven't already.
 
 Visit `http://localhost:3000` to view the site with live reloading.
 
+### Source structure
+
+- `src/index.njk` and `src/not-found.njk` are page entrypoints.
+- `src/_data/` contains structured site data such as metadata and grouped link lists.
+- `src/_includes/` contains shared layout templates.
+- `src/_components/` contains reusable visual/template fragments.
+- `src/static/` contains copied client assets, including extracted browser scripts under `src/static/scripts/`.
+
 ## Deployment
 
 The site is automatically deployed to GitHub Pages via GitHub Actions on every push to main.
 
 The published site includes a top-level `404.html` for GitHub Pages-compatible not found handling. Configure the `dominick.cc` custom domain in the repository's GitHub Pages settings.
+
+`_site/` is generated build output. Treat it as disposable and make source changes under `src/`.

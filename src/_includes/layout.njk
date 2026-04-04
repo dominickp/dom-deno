@@ -6,95 +6,27 @@
     <title>{{ title }}</title>
 
     <!-- Meta Tags for Open Graph -->
-    <meta name="description" content="Learn all about Dom at his personal homepage.">
-    <meta property="og:url" content="https://dominick.cc">
+    <meta name="description" content="{{ description or meta.defaultDescription }}">
+    <meta property="og:url" content="{{ meta.siteUrl }}{{ url or '/' }}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Dom's Homepage">
-    <meta property="og:description" content="Learn all about Dom at his personal homepage.">
-    <meta property="og:image" content="https://dominick.cc/static/dom.webp">
+    <meta property="og:title" content="{{ social_title or title }}">
+    <meta property="og:description" content="{{ social_description or description or meta.defaultDescription }}">
+    <meta property="og:image" content="{{ meta.siteUrl }}{{ meta.socialImagePath }}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta property="twitter:domain" content="dominick.cc">
-    <meta property="twitter:url" content="https://dominick.cc">
-    <meta name="twitter:title" content="Dom's Homepage">
-    <meta name="twitter:description" content="Learn all about Dom at his personal homepage.">
-    <meta name="twitter:image" content="https://dominick.cc/static/dom.webp">
+    <meta property="twitter:domain" content="{{ meta.socialDomain }}">
+    <meta property="twitter:url" content="{{ meta.siteUrl }}{{ url or '/' }}">
+    <meta name="twitter:title" content="{{ social_title or title }}">
+    <meta name="twitter:description" content="{{ social_description or description or meta.defaultDescription }}">
+    <meta name="twitter:image" content="{{ meta.siteUrl }}{{ meta.socialImagePath }}">
 
     <link rel="icon" type="image/x-icon" href="static/favicon.ico">
     <script src="static/anime.min.js"></script>
+    <script src="static/scripts/site.js" defer></script>
     <link rel="stylesheet" href="static/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
-    <script>
-      function revealContactLink(link) {
-        if (link.dataset.revealed === 'true') {
-          return;
-        }
-
-        const email = atob(link.dataset.contact || '');
-        const subject = atob(link.dataset.subj || '');
-        const emailLabel = link.querySelector('[data-contact-email]');
-
-        link.href = `mailto:${email}?subject=${subject}`;
-        link.dataset.revealed = 'true';
-        link.classList.add('is-revealed');
-
-        if (emailLabel) {
-          emailLabel.textContent = email;
-        }
-      }
-
-      function configureContactLinks() {
-        for (const link of document.querySelectorAll('a[data-contact]')) {
-          link.addEventListener('focus', function () {
-            revealContactLink(link);
-          });
-
-          link.addEventListener('mouseenter', function () {
-            revealContactLink(link);
-          });
-
-          link.addEventListener('click', function (event) {
-            if (link.dataset.revealed !== 'true') {
-              revealContactLink(link);
-              event.preventDefault();
-            }
-          });
-        }
-      }
-
-      // self executing function here
-      document.addEventListener("DOMContentLoaded", function (event) {
-        configureContactLinks();
-
-        // Alter background image/color randomly
-        const max = 120;
-        const r = Math.round(Math.random() * (max - 0) + 0)
-        const g = Math.round(Math.random() * (max - 0) + 0)
-        const b = Math.round(Math.random() * (max - 0) + 0)
-
-        // Set the background color and image
-        document
-          .querySelector("html")
-          .style
-          .backgroundImage = `linear-gradient(rgba(${r}, ${g}, ${b}, 0.8), rgba(${r}, ${g}, ${b}, 0.8)), url('static/dom.webp')`;
-        document
-          .querySelector("html")
-          .style
-          .backgroundColor = `rgba(${r}, ${g}, ${b}, 0.8)`;
-        document
-          .querySelector("html")
-          .style
-          .setProperty('--accent-rgb', `${r}, ${g}, ${b}`);
-
-        // Change the text selection color
-        const ss = document.styleSheets[0]
-        if ("insertRule" in ss) {
-          ss.insertRule(`::selection { background: rgb(${r}, ${g}, ${b}); }`, 0);
-        }
-      });
-    </script>
   </head>
   <body>
     <div class="container">

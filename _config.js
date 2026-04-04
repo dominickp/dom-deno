@@ -2,6 +2,7 @@ import lume from 'lume/mod.ts'
 import lightningCss from 'lume/plugins/lightningcss.ts'
 import minifyHTML from 'lume/plugins/minify_html.ts'
 import nunjucks from 'lume/plugins/nunjucks.ts'
+import terser from 'lume/plugins/terser.ts'
 import cache_busting from 'lume/middlewares/cache_busting.ts'
 
 const site = lume({
@@ -16,6 +17,16 @@ site.use(nunjucks())
 
 // Add CSS files
 site.add(['.css'])
+
+// Process and minify client-side scripts
+site.add(['.js'])
+site.use(
+    terser({
+        options: {
+            module: false,
+        },
+    })
+)
 
 // Minify CSS
 site.use(lightningCss({ extensions: ['.css'] }))

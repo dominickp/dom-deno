@@ -2,8 +2,5 @@
   "trailingComma": "es5",
   "tabWidth": 4,
   "semi": false,
-  "singleQuote": true,
-  "files.associations": {
-    "*.njk": "html"
-  }
+  "singleQuote": true
 }
