@@ -2,8 +2,11 @@ import lume from 'lume/mod.ts'
 import lightningCss from 'lume/plugins/lightningcss.ts'
 import minifyHTML from 'lume/plugins/minify_html.ts'
 import nunjucks from 'lume/plugins/nunjucks.ts'
+import sourceMaps from 'lume/plugins/source_maps.ts'
 import terser from 'lume/plugins/terser.ts'
 import cache_busting from 'lume/middlewares/cache_busting.ts'
+
+const isServeMode = Deno.args.includes('-s') || Deno.args.includes('--serve')
 
 const site = lume({
     src: './src',
@@ -27,6 +30,10 @@ site.use(
         },
     })
 )
+
+if (isServeMode) {
+    site.use(sourceMaps())
+}
 
 // Minify CSS
 site.use(lightningCss({ extensions: ['.css'] }))

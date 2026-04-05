@@ -32,6 +32,8 @@ This repo expects `.njk` files to open in a Nunjucks-aware language mode. The wo
 
 Visit `http://localhost:3000` to view the site with live reloading.
 
+When running the local server, Lume emits JavaScript source maps for easier browser debugging. Production builds created with `deno task build` do not include source maps in `_site/`.
+
 ### Source structure
 
 - `src/index.njk` and `src/not-found.njk` are page entrypoints.
