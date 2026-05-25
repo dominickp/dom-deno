@@ -19,6 +19,11 @@ export default {
     ],
     projectLinks: [
         {
+            text: 'Dancing Bot',
+            url: 'https://dominickp.github.io/dancing-bot/',
+            icon: 'mdi:shoe-print',
+        },
+        {
             text: 'Dance Game Slot',
             url: 'https://ledancer.dominick.cc/',
             icon: 'mdi:dice-3',
