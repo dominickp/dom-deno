@@ -37,10 +37,18 @@ When running the local server, Lume emits JavaScript source maps for easier brow
 ### Source structure
 
 - `src/index.njk` and `src/not-found.njk` are page entrypoints.
+- `src/blog/` contains blog landing pages and individual post content.
 - `src/_data/` contains structured site data such as metadata and grouped link lists.
 - `src/_includes/` contains shared layout templates.
 - `src/_components/` contains reusable visual/template fragments.
 - `src/static/` contains copied client assets, including extracted browser scripts under `src/static/scripts/`.
+
+### Adding blog posts
+
+- Create a new file under `src/blog/`, for example `src/blog/my-next-post.md`.
+- Copy the front matter from `src/blog/my-blog-post.md` and update `title`, `url`, `description`, and `date`.
+- Keep `type: blog-post` so the post appears automatically on `/blog/`.
+- Reference images with absolute paths such as `/static/my-photo.jpg` so they work on nested blog routes and in GitHub Pages output.
 
 ## Deployment
 

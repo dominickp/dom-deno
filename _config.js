@@ -7,6 +7,40 @@ import terser from 'lume/plugins/terser.ts'
 import cache_busting from 'lume/middlewares/cache_busting.ts'
 
 const isServeMode = Deno.args.includes('-s') || Deno.args.includes('--serve')
+const weekdayNames = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+const monthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+]
+
+function formatDate(value, style = 'long') {
+    const date = value instanceof Date ? value : new Date(value)
+
+    if (Number.isNaN(date.getTime())) {
+        return ''
+    }
+
+    const weekday = weekdayNames[date.getUTCDay()]
+    const month = monthNames[date.getUTCMonth()]
+    const day = String(date.getUTCDate()).padStart(2, '0')
+    const year = date.getUTCFullYear()
+
+    if (style === 'compact') {
+        return `${month} ${day} ${year}`
+    }
+
+    return `${weekday} ${month} ${day} ${year}`
+}
 
 const site = lume({
     src: './src',
@@ -17,6 +51,7 @@ const site = lume({
 })
 
 site.use(nunjucks())
+site.filter('formatDate', formatDate)
 
 // Add CSS files
 site.add(['.css'])

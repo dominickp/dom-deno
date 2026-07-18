@@ -4,7 +4,9 @@ layout: layout.njk
 description: Learn all about Dom at his personal homepage.
 ---
 
-<div class="row">
+{% set recentPosts = search.pages("type=blog-post", "date=desc") %}
+
+<div class="row home-hero">
     <div class="two-thirds column">
         <h1>Professional Stuff</h1>
         <p>
@@ -17,10 +19,10 @@ description: Learn all about Dom at his personal homepage.
             I'm passionate about software development, testing, distributed systems, mentoring new developers, and improving DX/developer productivity.
         </p>
 
-        <div>
+        <div class="home-primary-actions">
             <a
                 href="#"
-                class="button"
+                class="home-list-link home-primary-link"
                 data-resume-link
                 data-link="c3RhdGljL2RvbWluaWNrX3BlbHVzb19yZXN1bWUucGRm"
                 target="_blank"
@@ -29,66 +31,87 @@ description: Learn all about Dom at his personal homepage.
                 Resume
             </a>
             {% for link in home.personalLinks %}
-                <a class="button {{link.add_class}}" href="{{ link.url }}" target="_blank">
+                <a class="home-list-link home-primary-link {{link.add_class}}" href="{{ link.url }}" target="_blank">
                     <span class="iconify" data-icon="{{link.icon}}"></span>
                     {{ link.text }}
                 </a>
             {% endfor %}
         </div>
     </div>
-    <div class="one-third column">
+    <div class="one-third column home-hero-viz">
         {{comp.pipeline_viz() | await | safe}}
-
     </div>
 </div>
-<hr/>
-<div class="row">
+
+<div class="row home-section home-section-blog">
     <div class="column">
-        <h1>Fun Projects</h1>
-        <p>
+        <div class="home-section-header">
+            <h2>Recent Posts</h2>
+            <a href="/blog/">View all posts</a>
+        </div>
+        {% if recentPosts.length %}
+            <div class="home-post-list">
+                {% for post in recentPosts.slice(0, 3) %}
+                    <article class="home-post-item">
+                        <div class="home-post-meta">
+                            <p class="home-post-date">{{ post.date | formatDate("compact") }}</p>
+                            <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                        </div>
+                    </article>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p>No posts published yet. The blog is ready when you are.</p>
+        {% endif %}
+    </div>
+</div>
+
+<div class="row home-section">
+    <div class="column">
+        <h2>Fun Projects</h2>
+        <p class="home-section-intro">
             I like to tinker with hardware and software projects in my spare time.
         </p>
-        <div>
+        <div class="home-link-row">
             {% for link in home.projectLinks %}
-                <a class="button" href="{{ link.url }}" target="_blank">
+                <a class="home-list-link" href="{{ link.url }}" target="_blank">
                     <span class="iconify" data-icon="{{link.icon}}"></span>
-                    {{ link.text }}
+                    <span>{{ link.text }}</span>
                 </a>
             {% endfor %}
         </div>
     </div>
 </div>
-<hr/>
-<div class="row">
-    <div class="two-thirds column">
-        <h1>In The Groove</h1>
+
+<div class="row home-section">
+    <div class="column">
+        <h2>In The Groove</h2>
         <p>
             I play ITG, which is a somewhat obscure arcade dance game from the early 2000s &mdash; <a href="https://itgwiki.dominick.cc/en/meta/what-is-itg" target="_blank">similar to Dance Dance Revolution</a>. 
             I stream ITG live on my Twitch channel and also make related videos on YouTube once in
             a while.
         </p>
-        <div>
+        <div class="home-link-row">
             {% for link in home.itgLinks %}
-                <a class="button" href="{{ link.url }}" target="_blank">
+                <a class="home-list-link" href="{{ link.url }}" target="_blank">
                     <span class="iconify" data-icon="{{link.icon}}"></span>
-                    {{ link.text }}
+                    <span>{{ link.text }}</span>
                 </a>
             {% endfor %}
         </div>
     </div>
-    <div class="one-third column">
-        {{comp.panel_viz() | await | safe}}
-    </div>
 </div>
-<hr/>
-<div class="row">
+
+<div class="row home-section home-section-contact">
     <div class="column">
-        <h1>Contact</h1>
-        <p>Want to get in touch? Feel free to reach out via email.</p>
-        <div>
+        <div class="home-section-header">
+            <h2>Contact</h2>
+            <p>Want to get in touch? Reach out via email.</p>
+        </div>
+        <div class="home-contact-row">
             <a
                 href="#"
-                class="button contact-button"
+                class="contact-button home-list-link"
                 data-contact="ZG9tQGRvbWluaWNrLmNj"
                 data-subj="SGV5IERvbQ=="
                 target="_blank"
