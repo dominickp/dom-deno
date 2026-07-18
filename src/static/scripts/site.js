@@ -308,7 +308,8 @@ function initializeBlogPostToc() {
 
     for (const heading of headings) {
         if (!heading.id) {
-            const baseId = slugifyHeading(heading.textContent || '') || 'section'
+            const baseId =
+                slugifyHeading(heading.textContent || '') || 'section'
             let nextId = baseId
             let suffix = 2
 
@@ -343,7 +344,10 @@ function initializeBlogPostToc() {
                     return entry.isIntersecting
                 })
                 .sort(function (left, right) {
-                    return left.boundingClientRect.top - right.boundingClientRect.top
+                    return (
+                        left.boundingClientRect.top -
+                        right.boundingClientRect.top
+                    )
                 })[0]
 
             if (!visibleEntry) {
