@@ -48,7 +48,7 @@ function configureResumeLinks() {
 }
 
 function applyBackgroundTheme() {
-    const max = 120
+    const max = 110
     const red = Math.round(Math.random() * max)
     const green = Math.round(Math.random() * max)
     const blue = Math.round(Math.random() * max)
