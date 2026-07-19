@@ -15,8 +15,8 @@ not easily seen by the naked eye. It's likely one of the reasons your printer
 will refuse to print a black and white document if it's out of yellow ink.
 
 This recently came up in online discussions due to supposed prototype/playtest 
-Pokemon cards from 1996 were being sold online as authentic, but the tracking 
-dots proved they were actually printed in 2016 or 2024.
+Pokemon cards from 1996 which were being sold online as authentic. The tracking 
+dots proved they were actually printed between 2016 and 2024.
 
 > Information like serial number and sometime the print time is encoded in these 
 > dots. They can act as a “signature” for the printer that law enforcement uses 
