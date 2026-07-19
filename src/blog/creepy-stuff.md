@@ -26,7 +26,7 @@ dots proved they were actually printed in 2016 or 2024.
 ![Printer tracking dots - Pokemon card](/static/img/creepy-stuff/printer-dots1.png)
 
 Sources and further reading: 
-- [DocuColor Tracking Dot Decoding Guide](https://w2.eff.org/Privacy/printers/docucolor/)
+- [DocuColor Tracking Dot Decoding Guide (EFF)](https://w2.eff.org/Privacy/printers/docucolor/)
 - [Many of the Pokemon playtest cards were likely printed in 2024 (pfm @ elitefourum)](https://www.elitefourum.com/t/many-of-the-pokemon-playtest-cards-were-likely-printed-in-2024/52421)
 - [Printer tracking dots (Wikipedia)](https://en.wikipedia.org/wiki/Printer_tracking_dots)
 

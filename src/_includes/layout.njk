@@ -28,7 +28,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   </head>
-  <body>
+  {% set bodyClasses = "page page-home" if url == "/" else "page page-interior" %}
+  {% if page_class %}
+    {% set bodyClasses = bodyClasses ~ " " ~ page_class %}
+  {% endif %}
+  <body class="{{ bodyClasses }}">
     <div class="container">
       <div class="row">
         <div class="twelve column">

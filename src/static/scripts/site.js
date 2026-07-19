@@ -53,15 +53,33 @@ function applyBackgroundTheme() {
     const green = Math.round(Math.random() * max)
     const blue = Math.round(Math.random() * max)
     const html = document.documentElement
+    const isBlogPost = document.body.classList.contains('page-blog-post')
+    const defaultAccentRgb = `${red}, ${green}, ${blue}`
+    const defaultBackgroundColor = `rgba(${red}, ${green}, ${blue}, 0.8)`
+    const defaultBackgroundImage = "url('/static/dom.webp')"
+    const defaultBackgroundPosition = '0 35%'
+    const defaultBackgroundSize = 'cover'
 
-    html.style.backgroundImage = `linear-gradient(rgba(${red}, ${green}, ${blue}, 0.8), rgba(${red}, ${green}, ${blue}, 0.8)), url('static/dom.webp')`
-    html.style.backgroundColor = `rgba(${red}, ${green}, ${blue}, 0.8)`
-    html.style.setProperty('--accent-rgb', `${red}, ${green}, ${blue}`)
+    let accentRgb = defaultAccentRgb
+    let backgroundColor = defaultBackgroundColor
+    let backgroundImage = defaultBackgroundImage
+    let backgroundPosition = defaultBackgroundPosition
+    let backgroundSize = defaultBackgroundSize
+
+    if (isBlogPost) {
+        backgroundImage = 'none'
+    }
+
+    html.style.backgroundImage = `linear-gradient(rgba(${accentRgb}, 0.8), rgba(${accentRgb}, 0.8)), ${backgroundImage}`
+    html.style.backgroundColor = backgroundColor
+    html.style.backgroundPosition = backgroundPosition
+    html.style.backgroundSize = backgroundSize
+    html.style.setProperty('--accent-rgb', accentRgb)
 
     const stylesheet = document.styleSheets[0]
     if (stylesheet && 'insertRule' in stylesheet) {
         stylesheet.insertRule(
-            `::selection { background: rgb(${red}, ${green}, ${blue}); }`,
+            `::selection { background: rgb(${accentRgb}); }`,
             0
         )
     }
