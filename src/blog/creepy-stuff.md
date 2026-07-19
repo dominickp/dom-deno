@@ -9,7 +9,7 @@ type: blog-post
 
 ## Introduction
 
-## Printer tracking dots (DocuColor)
+## Printer tracking dots
 Consumer printers add metadata in the form of printed tiny yellow dots that are 
 not easily seen by the naked eye. It's likely one of the reasons your printer
 will refuse to print a black and white document if it's out of yellow ink.
@@ -25,13 +25,23 @@ dots proved they were actually printed in 2016 or 2024.
 
 ![Printer tracking dots - Pokemon card](/static/img/creepy-stuff/printer-dots1.png)
 
-Sources and further reading: 
+**Sources and further reading:**
 - [DocuColor Tracking Dot Decoding Guide (EFF)](https://w2.eff.org/Privacy/printers/docucolor/)
 - [Many of the Pokemon playtest cards were likely printed in 2024 (pfm @ elitefourum)](https://www.elitefourum.com/t/many-of-the-pokemon-playtest-cards-were-likely-printed-in-2024/52421)
 - [Printer tracking dots (Wikipedia)](https://en.wikipedia.org/wiki/Printer_tracking_dots)
 
+## Data collection in modern vehicles
 
-OSX mediaanalysisd
+- https://www.consumerreports.org/electronics/personal-information/how-to-stop-your-car-from-collecting-sharing-driving-data-a1233378612/
+- https://www.bbc.com/future/article/20260513-your-car-is-spying-on-you-its-about-to-get-worse
+
+## OSX mediaanalysisd
+
+
+- https://github.com/egorFiNE/maKiller
+- https://mjtsai.com/blog/2023/01/25/network-connections-from-mediaanalysisd/
+- https://github.com/jac-jim/stop-mediaanalysisd
+
 - car remote shutdown
 	- modem, gps
 	- https://news.ycombinator.com/item?id=48138136
@@ -41,3 +51,4 @@ OSX mediaanalysisd
 - phones without 
 	- removable battery, power off device 
 	- expandable storage
+	- in general, the primis of a smartphone that has a gps, front facing camera, not coverable, and a microphone always accessible

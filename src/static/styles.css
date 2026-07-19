@@ -72,6 +72,9 @@ p {
 
 article {
     overflow-wrap: anywhere;
+    margin: -10px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.1);
 }
 
 .blog-post-layout {
