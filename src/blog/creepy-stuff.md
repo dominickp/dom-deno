@@ -52,3 +52,7 @@ dots proved they were actually printed between 2016 and 2024.
 	- removable battery, power off device 
 	- expandable storage
 	- in general, the primis of a smartphone that has a gps, front facing camera, not coverable, and a microphone always accessible
+
+
+NOTES:
+- it would be interesting to order these by when they were introduced
