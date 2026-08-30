@@ -1,0 +1,30 @@
+---
+layout: layout.njk
+page_class: page-blog-post
+---
+
+<div class="row blog-post-layout">
+    <div class="two-thirds column">
+        <article class="blog-post" data-blog-post>
+            <header class="blog-post-header">
+                <div class="blog-post-meta">
+                    {% if date %}
+                        <p class="blog-post-date"><small>{{ date | formatDate }}</small></p>
+                    {% endif %}
+                    <a class="blog-post-back-link" href="/blog/">&larr; Blog</a>
+                </div>
+                <h1>{{ title }}</h1>
+                {% if description %}
+                    <p>{{ description }}</p>
+                {% endif %}
+            </header>
+            {{ content | safe }}
+        </article>
+    </div>
+    <aside class="one-third column blog-post-sidebar" aria-label="Table of contents">
+        <div class="blog-post-sidebar-card" data-blog-toc-container hidden>
+            <p class="blog-post-sidebar-label">On this page</p>
+            <nav class="blog-post-toc" data-blog-toc></nav>
+        </div>
+    </aside>
+</div>

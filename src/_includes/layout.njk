@@ -19,21 +19,31 @@
     <meta name="twitter:description" content="{{ social_description or description or meta.defaultDescription }}">
     <meta name="twitter:image" content="{{ meta.siteUrl }}{{ meta.socialImagePath }}">
 
-    <link rel="icon" type="image/x-icon" href="static/favicon.ico">
-    <script src="static/anime.min.js"></script>
-    <script src="static/scripts/site.js" defer></script>
-    <link rel="stylesheet" href="static/styles.css">
+    <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    {% if meta.blog.enabled %}
+    <link rel="alternate" type="application/rss+xml" title="Dominick" href="/rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="Dominick" href="/atom.xml">
+    {% endif %}
+    <script src="/static/anime.min.js"></script>
+    <script src="/static/scripts/site.js" defer></script>
+    <link rel="stylesheet" href="/static/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
   </head>
-  <body>
+  {% set bodyClasses = "page page-home" if url == "/" else "page page-interior" %}
+  {% if page_class %}
+    {% set bodyClasses = bodyClasses ~ " " ~ page_class %}
+  {% endif %}
+  <body class="{{ bodyClasses }}">
     <div class="container">
       <div class="row">
         <div class="twelve column">
           {% if not use_404_logo %}
-            {{comp.dominick_logo_svg() | await | safe}}
+            <a class="site-logo-link" href="/" aria-label="Go to homepage">
+              {{comp.dominick_logo_svg() | await | safe}}
+            </a>
             {{comp.dom_logo_viz() | await | safe}}
           {% else %}
             {{comp.404_svg() | await | safe}}

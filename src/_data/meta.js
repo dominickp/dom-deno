@@ -3,4 +3,7 @@ export default {
     siteUrl: 'https://dominick.cc',
     socialImagePath: '/static/dom.webp',
     socialDomain: 'dominick.cc',
+    blog: {
+        enabled: false,
+    },
 }

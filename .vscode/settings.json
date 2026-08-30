@@ -5,5 +5,8 @@
   },
   "[nunjucks]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "chat.tools.terminal.autoApprove": {
+    "deno": true
   }
 }

@@ -1,0 +1,40 @@
+---
+title: Blog
+layout: layout.njk
+description: Notes, projects, and photo-heavy writeups from Dom.
+url: /blog/
+---
+
+<div class="row">
+    <div class="two-thirds column">
+        <h1>Blog</h1>
+        <p>Posts live here. Each post gets its own page under <strong>/blog/</strong>, so adding new entries stays straightforward.</p>
+        <p><small>
+            <a href="/rss.xml" title="Subscribe via RSS">RSS feed</a>
+            &middot;
+            <a href="/atom.xml" title="Subscribe via Atom">Atom</a>
+            &middot;
+            <a href="/feed.json" title="Subscribe via JSON Feed">JSON</a>
+        </small></p>
+
+        {% set posts = search.pages("type=blog-post", "date=desc") %}
+        {% if posts.length %}
+            {% for post in posts %}
+                <article>
+                    <h2><a href="{{ post.url }}">{{ post.title }}</a></h2>
+                    {% if post.date %}
+                        <p><small>{{ post.date | formatDate }}</small></p>
+                    {% endif %}
+                    {% if post.description %}
+                        <p>{{ post.description }}</p>
+                    {% endif %}
+                </article>
+                {% if not loop.last %}
+                    <hr/>
+                {% endif %}
+            {% endfor %}
+        {% else %}
+            <p>No posts published yet.</p>
+        {% endif %}
+    </div>
+</div>
