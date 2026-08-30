@@ -8,6 +8,13 @@ type: blog-post
 ---
 
 ## Introduction
+<iframe width="560" height="315" src="https://www.youtube.com/embed/FzoXQKumgCw?si=JQfGBHUi6qqblEyf" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+This is one of my favorite videos on all of YouTube.
+
+Maybe its the hilarious premise or the deadpan delivery from the actors, but I find myself re-watching it like once a year just for chuckles.
+
+Over the years I've learned about weird and creepy technologies that could fit in as a bit in this video, a delusion a paranoid schizophrenic would fear, but is actually a totally real thing.
 
 ## Printer tracking dots
 Consumer printers add metadata in the form of printed tiny yellow dots that are 
@@ -16,7 +23,7 @@ will refuse to print a black and white document if it's out of yellow ink.
 
 This recently came up in online discussions due to supposed prototype/playtest 
 Pokemon cards from 1996 which were being sold online as authentic. The tracking 
-dots proved they were actually printed between 2016 and 2024.
+dots proved they were actually printed between 2016 and 2024, and thus were fake.
 
 > Information like serial number and sometime the print time is encoded in these 
 > dots. They can act as a “signature” for the printer that law enforcement uses 
