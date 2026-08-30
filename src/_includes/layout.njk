@@ -20,6 +20,10 @@
     <meta name="twitter:image" content="{{ meta.siteUrl }}{{ meta.socialImagePath }}">
 
     <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+    {% if meta.blog.enabled %}
+    <link rel="alternate" type="application/rss+xml" title="Dominick" href="/rss.xml">
+    <link rel="alternate" type="application/atom+xml" title="Dominick" href="/atom.xml">
+    {% endif %}
     <script src="/static/anime.min.js"></script>
     <script src="/static/scripts/site.js" defer></script>
     <link rel="stylesheet" href="/static/styles.css">

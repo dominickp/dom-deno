@@ -9,6 +9,13 @@ url: /blog/
     <div class="two-thirds column">
         <h1>Blog</h1>
         <p>Posts live here. Each post gets its own page under <strong>/blog/</strong>, so adding new entries stays straightforward.</p>
+        <p><small>
+            <a href="/rss.xml" title="Subscribe via RSS">RSS feed</a>
+            &middot;
+            <a href="/atom.xml" title="Subscribe via Atom">Atom</a>
+            &middot;
+            <a href="/feed.json" title="Subscribe via JSON Feed">JSON</a>
+        </small></p>
 
         {% set posts = search.pages("type=blog-post", "date=desc") %}
         {% if posts.length %}

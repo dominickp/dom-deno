@@ -13,7 +13,7 @@ description: Learn all about Dom at his personal homepage.
             I'm a cloud software engineer with demonstrated experience building microservices and web applications at scale. My expertise spans the full development lifecycle -- encompassing front-end, test automation, DevOps, API design, and creating best-in-class observability.
         </p>
         <p>
-            Some of the industries I've worked in are: cybersecurity, consumer electronics, and commercial printing and fulfillment.
+            Some of the industries I've worked in are: cybersecurity, consumer electronics, and commercial printing/fulfillment.
         </p>
         <p>
             I'm passionate about software development, testing, distributed systems, mentoring new developers, and improving DX/developer productivity.
@@ -43,6 +43,7 @@ description: Learn all about Dom at his personal homepage.
     </div>
 </div>
 
+{% if meta.blog.enabled %}
 <div class="row home-section home-section-blog">
     <div class="column">
         <div class="home-section-header">
@@ -65,6 +66,7 @@ description: Learn all about Dom at his personal homepage.
         {% endif %}
     </div>
 </div>
+{% endif %}
 
 <div class="row home-section">
     <div class="column">

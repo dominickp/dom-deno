@@ -4,6 +4,7 @@ import minifyHTML from 'lume/plugins/minify_html.ts'
 import nunjucks from 'lume/plugins/nunjucks.ts'
 import sourceMaps from 'lume/plugins/source_maps.ts'
 import terser from 'lume/plugins/terser.ts'
+import feed from 'lume/plugins/feed.ts'
 import cache_busting from 'lume/middlewares/cache_busting.ts'
 
 const isServeMode = Deno.args.includes('-s') || Deno.args.includes('--serve')
@@ -44,11 +45,40 @@ function formatDate(value, style = 'long') {
 
 const site = lume({
     src: './src',
+    location: new URL('https://dominick.cc'),
     server: {
         page404: './404.html',
         middlewares: [cache_busting({ regex: /\/v[\d]+\//, replacement: '/' })],
     },
 })
+
+site.use(
+    feed(() => {
+        // Read the live site data at feed-generation time so toggling
+        // meta.blog.enabled is picked up on every build/hot reload without
+        // re-evaluating _config.js.
+        const blogEnabled =
+            site.source.data.get('/')?.meta?.blog?.enabled === true
+
+        return {
+            output: ['/rss.xml', '/atom.xml', '/feed.json'],
+            // If the blog is disabled, use a query that matches nothing so the
+            // feed still builds but is empty.
+            query: blogEnabled ? 'type=blog-post' : 'type=disabled-blog',
+            info: {
+                title: 'Dominick',
+                description: 'Notes, projects, and photo-heavy writeups from Dom.',
+                published: new Date(),
+                lang: 'en',
+            },
+            items: {
+                title: '=title',
+                description: '=description',
+                published: '=date',
+            },
+        }
+    })
+)
 
 site.use(nunjucks())
 site.filter('formatDate', formatDate)
