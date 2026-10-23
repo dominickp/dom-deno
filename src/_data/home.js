@@ -19,6 +19,11 @@ export default {
     ],
     projectLinks: [
         {
+            text: 'Lightshow Studio',
+            url: 'https://dominickp.github.io/lightshow-studio/',
+            icon: 'mdi:track-light',
+        },
+        {
             text: 'Dancing Bot',
             url: 'https://dominickp.github.io/dancing-bot/',
             icon: 'mdi:shoe-print',
