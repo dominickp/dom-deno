@@ -6,12 +6,6 @@ export default {
             icon: 'simple-icons:github',
         },
         {
-            text: 'GitHub(Bose)',
-            url: 'https://github.com/Dominick-Peluso-Bose',
-            icon: 'simple-icons:github',
-            add_class: 'hide-mobile',
-        },
-        {
             text: 'LinkedIn',
             url: 'https://www.linkedin.com/in/dominickpeluso/',
             icon: 'simple-icons:linkedin',

@@ -364,7 +364,7 @@ h3 {
 .home-primary-actions {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 0.8rem;
 }
 
 .home-section {
@@ -425,25 +425,43 @@ h3 {
 .home-link-row {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem 2rem;
+    gap: 0.8rem;
 }
 
+/* Outline button: transparent at rest, fills solid white on hover/focus. */
 .home-list-link {
     display: inline-flex;
     align-items: center;
     gap: 0.8rem;
-    color: rgba(255, 255, 255, 0.88);
+    padding: 0.7rem 1.6rem;
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    border-radius: 4px;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #ffffff;
+    font-weight: 500;
     text-decoration: none;
+    opacity: 1;
     transition:
         color 180ms ease,
-        text-shadow 180ms ease,
-        opacity 180ms ease,
-        background-color 180ms ease;
-    margin-right: 3px;
+        background-color 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease,
+        opacity 180ms ease;
 }
 
 .home-list-link:hover,
-.home-list-link:focus-visible,
+.home-list-link:focus-visible {
+    color: #111111;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow:
+        0 0 12px rgba(var(--accent-rgb), 0.8),
+        0 0 26px rgba(var(--accent-rgb), 0.4);
+    opacity: 1;
+}
+
 .home-section-header a:hover,
 .home-section-header a:focus-visible,
 .home-post-item a:hover,
@@ -486,8 +504,9 @@ h3 {
         text-shadow 180ms ease;
 }
 
-.contact-button:hover {
-    transform: translateY(-1px);
+.contact-button:hover,
+.contact-button:focus-visible {
+    transform: translateY(-2px);
 }
 
 .contact-button-text {
@@ -524,6 +543,13 @@ h3 {
     text-shadow:
         0 0 12px rgba(var(--accent-rgb), 0.85),
         0 0 24px rgba(var(--accent-rgb), 0.45);
+}
+
+/* Once revealed the button is a white fill on hover, so the glow has to go. */
+.contact-button.is-revealed:hover,
+.contact-button.is-revealed:focus-visible {
+    color: #111111;
+    text-shadow: none;
 }
 
 .contact-button.is-revealed .contact-button-label {
