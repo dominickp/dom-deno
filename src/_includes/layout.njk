@@ -2,7 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
+    {% if allow_zoom %}
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    {% else %}
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    {% endif %}
     <title>{{ title }}</title>
 
     <!-- Meta Tags for Open Graph -->
@@ -25,12 +29,13 @@
     <link rel="alternate" type="application/atom+xml" title="Dominick" href="/atom.xml">
     {% endif %}
     <script src="/static/anime.min.js"></script>
-    <script src="/static/scripts/site.js" defer></script>
+    <script type="module" src="/static/scripts/site.js"></script>
     <link rel="stylesheet" href="/static/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@300;500&display=swap" rel="stylesheet">
     <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+    {% block head %}{% endblock %}
   </head>
   {% set bodyClasses = "page page-home" if url == "/" else "page page-interior" %}
   {% if page_class %}
@@ -40,13 +45,15 @@
     <div class="container">
       <div class="row">
         <div class="twelve column">
-          {% if not use_404_logo %}
+          {% if use_404_logo %}
+            {{comp.404_svg() | await | safe}}
+          {% elif not hide_site_logo %}
             <a class="site-logo-link" href="/" aria-label="Go to homepage">
               {{comp.dominick_logo_svg() | await | safe}}
             </a>
-            {{comp.dom_logo_viz() | await | safe}}
-          {% else %}
-            {{comp.404_svg() | await | safe}}
+            {% if not hide_logo_viz %}
+              {{comp.dom_logo_viz() | await | safe}}
+            {% endif %}
           {% endif %}
         </div>
       </div>

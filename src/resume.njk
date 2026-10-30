@@ -1,0 +1,72 @@
+---
+title: Resume
+layout: layout.njk
+description: View or download Dominick Peluso's resume as a PDF.
+page_class: page-resume
+url: /resume/
+# The document should be the first thing on screen, so drop the animated logo
+# header (which also hides the logo visualisation nested inside it).
+hide_site_logo: true
+allow_zoom: true
+---
+
+{% block head %}
+{# The viewer implements dark mode itself: it inverts the PDF canvas with a
+   CSS filter under `@media (prefers-color-scheme: dark)`. Chrome's automatic
+   dark mode would also try to filter the page, and it cannot see into the
+   canvas that PDF.js paints, so the result is a half-processed page. This
+   tells the browser the page does not support dark mode, which turns that
+   feature off without affecting our own media query. #}
+<meta name="color-scheme" content="only light">
+{% endblock %}
+
+
+<div class="row resume-hero">
+    <div class="column">
+        <h1>Resume</h1>
+        <div class="resume-actions">
+            <a
+                href="#"
+                class="home-list-link home-primary-link resume-download"
+                data-resume-pdf="{{ resume.pdfToken }}"
+                download="{{ resume.downloadName }}"
+                >
+                <span class="iconify" data-icon="fa-solid:file-pdf"></span>
+                Download PDF
+            </a>
+            <a
+                href="#"
+                class="home-list-link"
+                data-resume-pdf="{{ resume.pdfToken }}"
+                target="_blank"
+                rel="noopener"
+                >
+                <span class="iconify" data-icon="fa-solid:arrow-up-right-from-square"></span>
+                Open in a new tab
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row resume-document">
+    <div class="column">
+        <div
+            class="resume-viewer"
+            data-resume-viewer
+            data-resume-pdf="{{ resume.pdfToken }}"
+            data-pdfjs-lib="{{ resume.libraryPath }}"
+            data-pdfjs-worker="{{ resume.workerPath }}"
+            data-pdfjs-fonts="{{ resume.standardFontsPath }}"
+            aria-busy="true"
+            >
+            <p class="resume-status" data-resume-status>Loading web viewer&hellip;</p>
+            <div class="resume-pages" data-resume-pages></div>
+            <noscript>
+                <p class="resume-status">
+                    This viewer needs JavaScript to render the PDF. Please enable
+                    JavaScript and reload the page to read the resume.
+                </p>
+            </noscript>
+        </div>
+    </div>
+</div>

@@ -86,12 +86,13 @@ site.filter('formatDate', formatDate)
 // Add CSS files
 site.add(['.css'])
 
-// Process and minify client-side scripts
+// Process and minify client-side scripts. The site scripts are ES modules
+// (`<script type="module">`), so terser needs to parse them as such.
 site.add(['.js'])
 site.use(
     terser({
         options: {
-            module: false,
+            module: true,
         },
     })
 )
@@ -108,6 +109,28 @@ site.copy(['.min.js'])
 
 // Add static files
 site.add('static')
+
+// Self-hosted PDF.js for the /resume/ viewer.
+// `pdfjs-dist` is a regular Deno-managed npm dependency (see deno.json), and
+// `nodeModulesDir: "auto"` gives it a stable on-disk location. The browser
+// build, the worker and the standard font data are published as static files
+// so the viewer never requests anything from a third-party CDN.
+const pdfjsRoot = new URL('./node_modules/pdfjs-dist/', import.meta.url)
+const pdfjsDest = 'static/vendor/pdfjs'
+const pdfjsAssets = ['build/pdf.min.mjs', 'build/pdf.worker.min.mjs']
+
+for (const entry of Deno.readDirSync(new URL('standard_fonts/', pdfjsRoot))) {
+    if (entry.isFile) {
+        pdfjsAssets.push(`standard_fonts/${entry.name}`)
+    }
+}
+
+for (const asset of pdfjsAssets) {
+    // `copy()` (instead of `add()`) keeps these files out of the render and
+    // minification pipeline: Terser would otherwise re-parse the already
+    // minified ESM bundles, and Lightning CSS has nothing to do here.
+    site.copy(new URL(asset, pdfjsRoot).href, `${pdfjsDest}/${asset}`)
+}
 
 // Copy robots.txt
 site.copy('./robots.txt')

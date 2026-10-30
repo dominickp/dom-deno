@@ -6,7 +6,9 @@
   },
   "imports": {
     "lume/": "https://deno.land/x/lume@v3.2.1/",
-    "deno-dom": "https://deno.land/x/deno_dom@v0.1.56/deno-dom-wasm.ts"
+    "deno-dom": "https://deno.land/x/deno_dom@v0.1.56/deno-dom-wasm.ts",
+    "pdfjs-dist": "npm:pdfjs-dist@4.10.38"
   },
-  "unstable": ["temporal"]
+  "unstable": ["temporal"],
+  "nodeModulesDir": "auto"
 }
