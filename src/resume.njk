@@ -10,20 +10,9 @@ hide_site_logo: true
 allow_zoom: true
 ---
 
-{% block head %}
-{# The viewer implements dark mode itself: it inverts the PDF canvas with a
-   CSS filter under `@media (prefers-color-scheme: dark)`. Chrome's automatic
-   dark mode would also try to filter the page, and it cannot see into the
-   canvas that PDF.js paints, so the result is a half-processed page. This
-   tells the browser the page does not support dark mode, which turns that
-   feature off without affecting our own media query. #}
-<meta name="color-scheme" content="only light">
-{% endblock %}
-
-
 <div class="row resume-hero">
     <div class="column">
-        <h1>Resume</h1>
+        <h1><a href="/">DOMINICK.CC</a> >> Resume</h1>
         <div class="resume-actions">
             <a
                 href="#"
@@ -42,7 +31,7 @@ allow_zoom: true
                 rel="noopener"
                 >
                 <span class="iconify" data-icon="fa-solid:arrow-up-right-from-square"></span>
-                Open in a new tab
+                Open PDF in a new tab
             </a>
         </div>
     </div>
